@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon src/index.js",
     "start-env": "DEBUG=server,server:* nodemon src/index.js",
-    "test": "jest --watchall --collect-coverage"
+    "test": "jest --watchAll --collect-coverage"
   },
   "keywords": [],
   "author": "",
