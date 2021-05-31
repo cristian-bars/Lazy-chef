@@ -1,5 +1,6 @@
 const {
-  getAll
+  getAll,
+  addRecipe
 } = require('./recipesController')();
 const Recipe = require('../models/recipesModel');
 
@@ -18,5 +19,56 @@ describe('getAll', () => {
 
     // assert
     expect(res.json).toHaveBeenCalledWith([{ title: 'Good task' }]);
+  });
+});
+
+describe('addRecipe', () => {
+  class MockRecipe {
+    constructor(title) {
+      this.title = title;
+    }
+
+    // eslint-disable-next-line class-methods-use-this
+    save() {}
+  }
+
+  test('should call json', async () => {
+    // arrange
+    const req = {
+      body: null
+    };
+    const res = {
+      json: jest.fn(),
+      send: jest.fn()
+    };
+
+    const newRecipe = new MockRecipe('recipe title');
+
+    Recipe.mockReturnValueOnce(newRecipe);
+
+    // act
+    await addRecipe(req, res);
+    // assert
+    expect(res.json).toHaveBeenCalledWith({ title: 'recipe title' });
+  });
+
+  test('should call send', async () => {
+    // arrange
+    const req = {
+      body: null
+    };
+    const res = {
+      json: jest.fn(),
+      send: jest.fn()
+    };
+
+    Recipe.mockReturnValueOnce({
+      save: jest.fn().mockRejectedValueOnce('error')
+    });
+
+    // act
+    await addRecipe(req, res);
+    // assert
+    expect(res.send).toHaveBeenCalledWith('error');
   });
 });
