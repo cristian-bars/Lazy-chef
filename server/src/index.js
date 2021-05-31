@@ -22,8 +22,10 @@ server.use(express.json());
 server.use(morgan('dev'));
 
 const recipesRouter = require('./routes/recipesRouter');
+const usersRouter = require('./routes/usersRouter');
 
-server.use('/', recipesRouter);
+server.use('/recipes', recipesRouter);
+server.use('/users', usersRouter);
 
 server.listen('2022',
   () => debug(`Server is running in ${chalk.yellow('localhost:2022')}`));
