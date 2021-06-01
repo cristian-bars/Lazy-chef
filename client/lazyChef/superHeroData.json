@@ -1,0 +1,14 @@
+{
+  "name" : "Cristian",
+  "age" : 20,
+  "subject" : [
+      {
+          "name": "SubA",
+          "grade": "B"
+      },
+      {
+          "name" : "SubB",
+          "grade" : "C"
+      }
+  ]
+}
