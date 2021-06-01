@@ -26,7 +26,7 @@ server.use('/recipes', recipesRouter);
 server.use('/users', usersRouter);
 server.use('/', authRoutes);
 server.use(
-  '/users',
+  '/user',
   passport.authenticate('jwt', { session: false }),
   authRoutes
 );
