@@ -19,9 +19,37 @@ function recipesController() {
       res.send(error);
     }
   }
+
+  async function delRecipe(req, res) {
+    try {
+      await Recipe.findByIdAndDelete(req.params.recipes);
+      res.status(204);
+      res.json();
+    } catch (error) {
+      res.status(404);
+      debug(error);
+      res.send(error);
+    }
+  }
+
+  async function getById(req, res) {
+    try {
+      const recipeById = await Recipe.findById(
+        req.params.recipes
+      );
+      res.json(recipeById);
+    } catch (error) {
+      debug(error);
+      res.status(404);
+      res.send(error);
+    }
+  }
+
   return {
     getAll,
-    addRecipe
+    addRecipe,
+    delRecipe,
+    getById
   };
 }
 

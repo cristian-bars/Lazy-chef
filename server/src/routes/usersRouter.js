@@ -10,7 +10,9 @@ function usersRouter() {
     .post(usersController.addUser);
 
   routes
-    .route('/:user');
+    .route('/:users')
+    .get(usersController.getById)
+    .delete(usersController.delUser);
 
   return routes;
 }

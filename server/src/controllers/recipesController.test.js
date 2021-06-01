@@ -1,6 +1,8 @@
 const {
   getAll,
-  addRecipe
+  addRecipe,
+  delRecipe,
+  getById
 } = require('./recipesController')();
 const Recipe = require('../models/recipesModel');
 
@@ -70,5 +72,121 @@ describe('addRecipe', () => {
     await addRecipe(req, res);
     // assert
     expect(res.send).toHaveBeenCalledWith('error');
+  });
+});
+
+describe('delRecipe', () => {
+  test('should call json', async () => {
+    const res = {
+      status: jest.fn(),
+      json: jest.fn(),
+      send: jest.fn()
+    };
+
+    const req = {
+      params: {
+        recipeId: null
+      }
+    };
+
+    await delRecipe(req, res);
+
+    expect(res.json).toHaveBeenCalled();
+  });
+  test('should call status with 204', async () => {
+    const res = {
+      status: jest.fn(),
+      json: jest.fn(),
+      send: jest.fn()
+    };
+
+    const req = {
+      params: {
+        recipeId: null
+      }
+    };
+
+    await delRecipe(req, res);
+
+    expect(res.status).toHaveBeenCalledWith(204);
+  });
+  test('should fail and call res.send with error', async () => {
+    const req = {
+      params: {
+        recipeId: null
+      }
+    };
+    const res = {
+      status: jest.fn(),
+      json: jest.fn(),
+      send: jest.fn()
+    };
+    Recipe.findByIdAndDelete.mockRejectedValueOnce('error');
+
+    await delRecipe(req, res);
+
+    expect(res.send).toHaveBeenCalledWith('error');
+  });
+});
+
+describe('getById', () => {
+  test('should call res.status with 404', async () => {
+    const res = {
+      json: jest.fn(),
+      status: jest.fn(),
+      send: jest.fn()
+    };
+
+    const req = {
+      params: {
+        recipeId: null
+      }
+    };
+
+    Recipe.findById.mockRejectedValueOnce();
+
+    await getById(req, res);
+
+    expect(res.status).toHaveBeenCalledWith(404);
+  });
+
+  test('should call res.send with error', async () => {
+    const res = {
+      json: jest.fn(),
+      status: jest.fn(),
+      send: jest.fn()
+    };
+
+    const req = {
+      params: {
+        recipeId: null
+      }
+    };
+
+    Recipe.findById.mockRejectedValueOnce('error');
+
+    await getById(req, res);
+
+    expect(res.send).toHaveBeenCalledWith('error');
+  });
+
+  test('should call res.json ', async () => {
+    const res = {
+      json: jest.fn(),
+      status: jest.fn(),
+      send: jest.fn()
+    };
+
+    const req = {
+      params: {
+        recipeId: null
+      }
+    };
+
+    Recipe.findById.mockResolvedValueOnce('un heroe');
+
+    await getById(req, res);
+
+    expect(res.json).toHaveBeenCalledWith('un heroe');
   });
 });
