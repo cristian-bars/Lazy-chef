@@ -1,6 +1,7 @@
 const {
   getAll,
-  addRecipe
+  addRecipe,
+  delRecipe
 } = require('./recipesController')();
 const Recipe = require('../models/recipesModel');
 
@@ -69,6 +70,60 @@ describe('addRecipe', () => {
     // act
     await addRecipe(req, res);
     // assert
+    expect(res.send).toHaveBeenCalledWith('error');
+  });
+});
+
+describe('delRecipe', () => {
+  test('should call json', async () => {
+    const res = {
+      status: jest.fn(),
+      json: jest.fn(),
+      send: jest.fn()
+    };
+
+    const req = {
+      params: {
+        recipeId: null
+      }
+    };
+
+    await delRecipe(req, res);
+
+    expect(res.json).toHaveBeenCalled();
+  });
+  test('should call status with 204', async () => {
+    const res = {
+      status: jest.fn(),
+      json: jest.fn(),
+      send: jest.fn()
+    };
+
+    const req = {
+      params: {
+        recipeId: null
+      }
+    };
+
+    await delRecipe(req, res);
+
+    expect(res.status).toHaveBeenCalledWith(204);
+  });
+  test('should fail and call res.send with error', async () => {
+    const req = {
+      params: {
+        recipeId: null
+      }
+    };
+    const res = {
+      status: jest.fn(),
+      json: jest.fn(),
+      send: jest.fn()
+    };
+    Recipe.findByIdAndDelete.mockRejectedValueOnce('error');
+
+    await delRecipe(req, res);
+
     expect(res.send).toHaveBeenCalledWith('error');
   });
 });

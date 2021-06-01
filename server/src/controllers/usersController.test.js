@@ -1,8 +1,9 @@
 const {
   getAll,
-  addUser
+  addUser,
+  delUser
 } = require('./usersController')();
-const Recipe = require('../models/usersModel');
+const User = require('../models/usersModel');
 
 jest.mock('../models/usersModel');
 
@@ -12,7 +13,7 @@ describe('getAll', () => {
     const res = {
       json: jest.fn()
     };
-    Recipe.find.mockResolvedValueOnce([{ name: 'Cristian' }]);
+    User.find.mockResolvedValueOnce([{ name: 'Cristian' }]);
 
     // act
     await getAll(null, res);
@@ -44,7 +45,7 @@ describe('addUser', () => {
 
     const newUser = new MockUser('user name');
 
-    Recipe.mockReturnValueOnce(newUser);
+    User.mockReturnValueOnce(newUser);
 
     // act
     await addUser(req, res);
@@ -62,13 +63,67 @@ describe('addUser', () => {
       send: jest.fn()
     };
 
-    Recipe.mockReturnValueOnce({
+    User.mockReturnValueOnce({
       save: jest.fn().mockRejectedValueOnce('error')
     });
 
     // act
     await addUser(req, res);
     // assert
+    expect(res.send).toHaveBeenCalledWith('error');
+  });
+});
+
+describe('delUser', () => {
+  test('should call json', async () => {
+    const res = {
+      status: jest.fn(),
+      json: jest.fn(),
+      send: jest.fn()
+    };
+
+    const req = {
+      params: {
+        userId: null
+      }
+    };
+
+    await delUser(req, res);
+
+    expect(res.json).toHaveBeenCalled();
+  });
+  test('should call status with 204', async () => {
+    const res = {
+      status: jest.fn(),
+      json: jest.fn(),
+      send: jest.fn()
+    };
+
+    const req = {
+      params: {
+        userId: null
+      }
+    };
+
+    await delUser(req, res);
+
+    expect(res.status).toHaveBeenCalledWith(204);
+  });
+  test('should fail and call res.send with error', async () => {
+    const req = {
+      params: {
+        userId: null
+      }
+    };
+    const res = {
+      status: jest.fn(),
+      json: jest.fn(),
+      send: jest.fn()
+    };
+    User.findByIdAndDelete.mockRejectedValueOnce('error');
+
+    await delUser(req, res);
+
     expect(res.send).toHaveBeenCalledWith('error');
   });
 });

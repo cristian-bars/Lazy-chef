@@ -10,7 +10,8 @@ function recipesRouter() {
     .post(recipesController.addRecipe);
 
   routes
-    .route('/:recipe');
+    .route('/:recipes')
+    .delete(recipesController.delRecipe);
 
   return routes;
 }
