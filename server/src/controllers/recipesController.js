@@ -31,10 +31,25 @@ function recipesController() {
       res.send(error);
     }
   }
+
+  async function getById(req, res) {
+    try {
+      const recipeById = await Recipe.findById(
+        req.params.recipes
+      );
+      res.json(recipeById);
+    } catch (error) {
+      debug(error);
+      res.status(404);
+      res.send(error);
+    }
+  }
+
   return {
     getAll,
     addRecipe,
-    delRecipe
+    delRecipe,
+    getById
   };
 }
 

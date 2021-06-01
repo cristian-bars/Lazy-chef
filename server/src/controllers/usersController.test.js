@@ -1,7 +1,8 @@
 const {
   getAll,
   addUser,
-  delUser
+  delUser,
+  getById
 } = require('./usersController')();
 const User = require('../models/usersModel');
 
@@ -125,5 +126,67 @@ describe('delUser', () => {
     await delUser(req, res);
 
     expect(res.send).toHaveBeenCalledWith('error');
+  });
+});
+
+describe('getById', () => {
+  test('should call res.status with 404', async () => {
+    const res = {
+      json: jest.fn(),
+      status: jest.fn(),
+      send: jest.fn()
+    };
+
+    const req = {
+      params: {
+        userId: null
+      }
+    };
+
+    User.findById.mockRejectedValueOnce();
+
+    await getById(req, res);
+
+    expect(res.status).toHaveBeenCalledWith(404);
+  });
+
+  test('should call res.send with error', async () => {
+    const res = {
+      json: jest.fn(),
+      status: jest.fn(),
+      send: jest.fn()
+    };
+
+    const req = {
+      params: {
+        userId: null
+      }
+    };
+
+    User.findById.mockRejectedValueOnce('error');
+
+    await getById(req, res);
+
+    expect(res.send).toHaveBeenCalledWith('error');
+  });
+
+  test('should call res.json ', async () => {
+    const res = {
+      json: jest.fn(),
+      status: jest.fn(),
+      send: jest.fn()
+    };
+
+    const req = {
+      params: {
+        userId: null
+      }
+    };
+
+    User.findById.mockResolvedValueOnce('un heroe');
+
+    await getById(req, res);
+
+    expect(res.json).toHaveBeenCalledWith('un heroe');
   });
 });

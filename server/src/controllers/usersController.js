@@ -31,10 +31,25 @@ function usersController() {
       res.send(error);
     }
   }
+
+  async function getById(req, res) {
+    try {
+      const userById = await User.findById(
+        req.params.users
+      );
+      res.json(userById);
+    } catch (error) {
+      debug(error);
+      res.status(404);
+      res.send(error);
+    }
+  }
+
   return {
     getAll,
     addUser,
-    delUser
+    delUser,
+    getById
   };
 }
 
