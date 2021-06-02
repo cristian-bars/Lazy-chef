@@ -2,7 +2,6 @@ import React from 'react';
 import {View, Image, TouchableOpacity, Text} from 'react-native';
 import styles from './styles';
 import generalStyles from '../../../styles';
-import Login from '../login/Login';
 
 const Dashboard = ({navigation}) => {
   return (
