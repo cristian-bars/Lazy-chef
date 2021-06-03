@@ -20,6 +20,19 @@ const generalStyles = StyleSheet.create({
     fontFamily: 'Cochin',
     fontSize: 25,
   },
+  homeNav: {
+    backgroundColor: 'black',
+    color: 'white',
+  },
+  formLogin: {
+    width: 300,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 5,
+  },
 });
 
 export default generalStyles;

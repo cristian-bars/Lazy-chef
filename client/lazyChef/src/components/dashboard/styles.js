@@ -2,8 +2,9 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   logo: {
-    width: 450,
-    height: 450,
+    width: 300,
+    height: 300,
+    alignItems: 'flex-start',
   },
   register: {
     color: 'white',
@@ -13,6 +14,9 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  loginSection: {
+    alignItems: 'flex-end',
   },
 });
 

@@ -5,13 +5,13 @@ function recipesReducer(recipes = [], action) {
     case actionTypes.LOAD_RECIPES:
       return action.recipes;
 
-    case actionTypes.DELETE_RECIPES:
+    case actionTypes.DELETE_RECIPE:
       return recipes.filter(recipe => recipe.id !== action.recipeId.id);
 
-    case actionTypes.ADD_RECIPES:
+    case actionTypes.ADD_RECIPE:
       return [...recipes, action.recipe];
 
-    case actionTypes.UPDATE_RECIPES:
+    case actionTypes.UPDATE_RECIPE:
       return recipes.map(recipe =>
         recipe.id === action.recipe.id ? {...recipe, ...action.recipe} : recipe,
       );

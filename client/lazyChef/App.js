@@ -4,21 +4,33 @@ import {Provider} from 'react-redux';
 import Dashboard from './src/components/dashboard/Dashboard';
 import Login from './src/components/login/Login';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Home from './src/components/home/Home';
 import store from './src/redux/stores/index';
 
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 function App() {
   return (
     <Provider store={store()}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Dashboard" component={Dashboard} />
-          <Stack.Screen name="Register" component={Login} />
-          <Stack.Screen name="Home" component={Home} />
-        </Stack.Navigator>
+        <Tab.Navigator>
+          <Tab.Screen
+            name="Home"
+            component={Dashboard}
+            options={() => ({
+              tabBarVisible: false,
+            })}
+          />
+          <Tab.Screen
+            name="Register"
+            component={Login}
+            options={() => ({
+              tabBarVisible: false,
+            })}
+          />
+          <Tab.Screen name="Profile" component={Home} />
+        </Tab.Navigator>
       </NavigationContainer>
     </Provider>
   );
