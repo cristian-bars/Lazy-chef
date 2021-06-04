@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {
@@ -12,18 +13,19 @@ import {getUserById} from '../../redux/actions/usersActionCreators';
 import styles from './styles';
 import generalStyles from '../../../styles';
 
-const Dashboard = ({navigation, dispatch}) => {
+const Dashboard = ({navigation, dispatch, userAcces}) => {
   let [email, showEmail] = useState('');
   let [password, showPassword] = useState('');
 
   const loginClick = () => {
     dispatch(getUserById({email, password}));
+    console.log(userAcces.token);
   };
 
   return (
     <View style={generalStyles.container}>
       <Image
-        style={styles.logo}
+        style={generalStyles.logo}
         source={{
           uri: 'https://i.ibb.co/MVc000Y/Logo-transparent-Patxi.png',
         }}
@@ -59,9 +61,9 @@ const Dashboard = ({navigation, dispatch}) => {
   );
 };
 
-function mapStateToProps({user}) {
+function mapStateToProps({userAcces}) {
   return {
-    user,
+    userAcces,
   };
 }
 
