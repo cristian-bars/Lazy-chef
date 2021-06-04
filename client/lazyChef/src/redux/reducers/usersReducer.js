@@ -9,7 +9,7 @@ function usersReducer(users = [], action) {
       return users.filter(user => user.id !== action.userId.id);
 
     case actionTypes.ADD_USER:
-      return [...users, action.user];
+      return [...users, action.newUser];
 
     case actionTypes.UPDATE_USER:
       return users.map(user =>

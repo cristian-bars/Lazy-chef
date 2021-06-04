@@ -22,9 +22,18 @@ export function loadUsers() {
 }
 
 export function addUsers(user) {
-  return {
-    type: actionTypes.ADD_USER,
-    user,
+  return async dispatch => {
+    try {
+      const {data} = await axios.post(`${url}/signup`, user);
+      dispatch({
+        type: actionTypes.ADD_USER,
+        newUser: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: 'LOAD_USERS_ERROR',
+      });
+    }
   };
 }
 
