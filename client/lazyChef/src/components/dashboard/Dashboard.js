@@ -1,5 +1,5 @@
 /* eslint-disable no-shadow */
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import {
   View,
@@ -14,12 +14,15 @@ import styles from './styles';
 import generalStyles from '../../../styles';
 
 const Dashboard = ({navigation, dispatch, userAcces}) => {
+  useEffect(() => {
+    userAcces.token && navigation.navigate('Profile');
+  }, [userAcces, navigation]);
+
   let [email, showEmail] = useState('');
   let [password, showPassword] = useState('');
 
   const loginClick = () => {
     dispatch(getUserById({email, password}));
-    console.log(userAcces.token);
   };
 
   return (
@@ -44,13 +47,10 @@ const Dashboard = ({navigation, dispatch, userAcces}) => {
           />
         </SafeAreaView>
 
-        <TouchableOpacity
-          style={generalStyles.button}
-          onPress={() => {
-            loginClick();
-          }}>
+        <TouchableOpacity style={generalStyles.button} onPress={loginClick}>
           <Text style={generalStyles.baseText}>Acceder</Text>
         </TouchableOpacity>
+
         <TouchableOpacity
           style={styles.touchRegister}
           onPress={() => navigation.navigate('Register')}>
