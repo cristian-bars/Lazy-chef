@@ -8,7 +8,18 @@ import styles from './styles';
 
 const RecipeCard = ({recipe}) => (
   <TouchableOpacity style={styles.recipeDetail}>
-    <Image style={styles.logo} source={{uri: recipe.image[0]}} />
+    {console.log(recipe.image)}
+    {recipe.image[0] ? (
+      <Image style={styles.logo} source={{uri: recipe.image[0]}} />
+    ) : (
+      <Image
+        style={styles.logo}
+        source={{
+          uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
+        }}
+      />
+    )}
+
     <View>
       <Text style={styles.titleText}>{recipe.title}</Text>
     </View>
@@ -18,7 +29,7 @@ const RecipeCard = ({recipe}) => (
 const Home = ({recipes, dispatch}) => {
   useEffect(() => {
     dispatch(loadRecipes());
-  }, []);
+  }, [recipes]);
 
   const listRender = ({item}) => {
     return <RecipeCard recipe={item} />;

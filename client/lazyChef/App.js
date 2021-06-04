@@ -1,6 +1,7 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import {Provider} from 'react-redux';
+import {connect} from 'react-redux';
 import Dashboard from './src/components/dashboard/Dashboard';
 import Login from './src/components/login/Login';
 import {NavigationContainer} from '@react-navigation/native';
