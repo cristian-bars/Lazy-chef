@@ -1,6 +1,11 @@
 import {StyleSheet} from 'react-native';
 
 const generalStyles = StyleSheet.create({
+  logo: {
+    width: 300,
+    height: 300,
+    alignItems: 'flex-start',
+  },
   button: {
     width: 300,
     height: 50,

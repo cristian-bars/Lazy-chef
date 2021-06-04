@@ -16,9 +16,6 @@ function usersReducer(users = [], action) {
         user.id === action.user.id ? {...user, ...action.user} : user,
       );
 
-    case actionTypes.LOAD_USER:
-      return action.user;
-
     default:
       return users;
   }

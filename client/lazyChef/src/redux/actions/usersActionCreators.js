@@ -3,6 +3,7 @@ import axios from 'axios';
 
 //const url = 'http://localhost/users';
 const url = 'http://192.168.0.29:2022';
+//const url = process.env.REACT_APP_PORT;
 
 export function loadUsers() {
   return async dispatch => {
@@ -57,10 +58,9 @@ export function getUserById(user) {
       const {data} = await axios.post(`${url}/login`, user);
       dispatch({
         type: actionTypes.LOAD_USER,
-        user: data,
+        userToken: data,
       });
     } catch (error) {
-      console.log('fallo');
       dispatch({
         type: 'LOAD_USERS_ERROR',
       });
