@@ -4,7 +4,7 @@ import {View, Text, FlatList, Image, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
 import {PropTypes} from 'prop-types';
 import {loadRecipes} from '../../redux/actions/recipesActionCreators';
-import styles from './styles';
+import styles from './HomeStyles';
 
 const RecipeCard = ({recipe}) => (
   <TouchableOpacity style={styles.recipeDetail}>
