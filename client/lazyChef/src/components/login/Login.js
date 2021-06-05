@@ -1,15 +1,14 @@
 /* eslint-disable no-shadow */
 import React, {useEffect, useState} from 'react';
 import {View, TouchableOpacity, Text, TextInput, Image} from 'react-native';
-import {addUsers, getUserById} from '../../redux/actions/usersActionCreators';
+import {addUsers} from '../../redux/actions/usersActionCreators';
 import {connect} from 'react-redux';
 import generalStyles from '../../../styles';
-import styles from './styles';
 
-const Register = ({navigation, dispatch, userAcces}) => {
+const Register = ({navigation, dispatch, user}) => {
   useEffect(() => {
-    userAcces.token && navigation.navigate('Home');
-  }, [userAcces, navigation]);
+    user && navigation.navigate('Home');
+  }, [user, navigation]);
 
   let [email, showEmail] = useState('');
   let [password, showPassword] = useState('');
@@ -18,13 +17,14 @@ const Register = ({navigation, dispatch, userAcces}) => {
     dispatch(addUsers({email, password}));
   };
   return (
-    <View style={styles.container}>
+    <View style={generalStyles.container}>
       <Image
         style={generalStyles.logo}
         source={{
           uri: 'https://i.ibb.co/MVc000Y/Logo-transparent-Patxi.png',
         }}
       />
+      <Text style={generalStyles.title}>Nuevo usuario</Text>
       <TextInput
         style={generalStyles.formLogin}
         placeholder="Email"
@@ -35,7 +35,7 @@ const Register = ({navigation, dispatch, userAcces}) => {
         placeholder="Password"
         onChangeText={password => showPassword(password)}
       />
-      <TouchableOpacity style={styles.button} onPress={() => newUser()}>
+      <TouchableOpacity style={generalStyles.button} onPress={() => newUser()}>
         <Text style={generalStyles.baseText}>Registrarse</Text>
       </TouchableOpacity>
     </View>

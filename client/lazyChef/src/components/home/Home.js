@@ -8,7 +8,6 @@ import styles from './styles';
 
 const RecipeCard = ({recipe}) => (
   <TouchableOpacity style={styles.recipeDetail}>
-    {console.log(recipe.image)}
     {recipe.image[0] ? (
       <Image style={styles.logo} source={{uri: recipe.image[0]}} />
     ) : (
@@ -28,7 +27,9 @@ const RecipeCard = ({recipe}) => (
 
 const Home = ({recipes, dispatch}) => {
   useEffect(() => {
-    dispatch(loadRecipes());
+    if (!recipes.length) {
+      dispatch(loadRecipes());
+    }
   }, [recipes]);
 
   const listRender = ({item}) => {
