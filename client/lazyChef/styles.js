@@ -2,8 +2,8 @@ import {StyleSheet} from 'react-native';
 
 const generalStyles = StyleSheet.create({
   logo: {
-    width: 300,
-    height: 300,
+    width: 250,
+    height: 250,
     alignItems: 'flex-start',
   },
   button: {
@@ -13,10 +13,12 @@ const generalStyles = StyleSheet.create({
     backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: 30,
   },
   container: {
     paddingTop: 50,
     flex: 1,
+    justifyContent: 'center',
     padding: 24,
     backgroundColor: '#044AFD',
     alignItems: 'center',
@@ -37,6 +39,14 @@ const generalStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginVertical: 5,
+    paddingLeft: 20,
+    fontSize: 20,
+  },
+  title: {
+    color: 'white',
+    fontSize: 25,
+    fontWeight: 'bold',
+    paddingVertical: 20,
   },
 });
 

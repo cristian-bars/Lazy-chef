@@ -8,15 +8,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#044AFD',
     alignItems: 'center',
   },
-  button: {
-    width: 300,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'center',
-    top: 100,
-  },
 });
 
 export default styles;
