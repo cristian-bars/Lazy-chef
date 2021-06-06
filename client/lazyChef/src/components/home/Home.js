@@ -6,7 +6,6 @@ import {PropTypes} from 'prop-types';
 import {useNavigation} from '@react-navigation/native';
 import {loadRecipes} from '../../redux/actions/recipesActionCreators';
 import styles from './HomeStyles';
-
 const Home = ({recipes, dispatch}) => {
   const navigation = useNavigation();
   useEffect(() => {
@@ -31,9 +30,40 @@ const Home = ({recipes, dispatch}) => {
           />
         )}
 
-        <View>
-          <Text style={styles.titleText}>{item.title}</Text>
+        <Text style={styles.titleText}>{item.title}</Text>
+        <View style={styles.recipeIcons}>
+          <View>
+            <Image
+              style={styles.imageIcons}
+              source={{
+                uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
+              }}
+            />
+            <Text style={styles.descriptionText}>
+              {item.recipeIngredient.length}
+            </Text>
+          </View>
+          <View>
+            <Image
+              style={styles.imageIcons}
+              source={{
+                uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
+              }}
+            />
+            <Text style={styles.descriptionText}>{item.difficulty}</Text>
+          </View>
+          <View>
+            <Image
+              style={styles.imageIcons}
+              source={{
+                uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
+              }}
+            />
+            <Text style={styles.descriptionText}>{item.totalTime}</Text>
+          </View>
         </View>
+
+        <Text style={styles.descriptionText}>{item.Description}</Text>
       </TouchableOpacity>
     );
   };

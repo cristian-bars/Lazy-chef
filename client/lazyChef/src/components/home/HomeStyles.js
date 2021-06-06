@@ -1,26 +1,36 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#D3E0FF',
+  },
   logo: {
-    width: 150,
     height: 150,
   },
+  imageIcons: {
+    width: 50,
+    height: 50,
+  },
   recipeDetail: {
-    flexDirection: 'row',
-    paddingVertical: 10,
+    flexDirection: 'column',
+    backgroundColor: 'white',
+    margin: 10,
   },
   titleText: {
-    fontSize: 25,
+    fontSize: 20,
     flex: 1,
+    padding: 10,
     flexWrap: 'wrap',
-    paddingLeft: 10,
   },
   descriptionText: {
     fontSize: 15,
     flexWrap: 'wrap',
+    padding: 10,
   },
-  recipeInfo: {
-    flexDirection: 'column',
+  recipeIcons: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
   },
 });
 
