@@ -3,8 +3,8 @@ import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import {View, Image, TouchableOpacity, Text, TextInput} from 'react-native';
 import {getUserById} from '../../redux/actions/usersActionCreators';
-import styles from './styles';
-import generalStyles from '../../../styles';
+import styles from './dashboardStyles';
+import generalStyles from '../../../generalStyles';
 
 const Dashboard = ({navigation, dispatch, userAcces}) => {
   useEffect(() => {

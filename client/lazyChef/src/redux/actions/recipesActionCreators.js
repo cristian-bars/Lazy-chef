@@ -3,6 +3,7 @@ import axios from 'axios';
 
 //const url = 'http://localhost/recipes';
 const url = 'http://192.168.0.29:2022/recipes';
+//const url = 'http://192.168.1.130:2022/recipes';
 
 export function loadRecipes() {
   return async dispatch => {
@@ -52,11 +53,18 @@ export function loadRecipe(recipe) {
 }
 
 export function getRecipeById(recipeId) {
+  console.log(`${url}/${recipeId}`);
   return async dispatch => {
-    const {data} = await axios(`${url}/${recipeId}`);
-    dispatch({
-      type: actionTypes.LOAD_RECIPE,
-      recipe: data,
-    });
+    try {
+      const {data} = await axios(`${url}/${recipeId}`);
+      dispatch({
+        type: actionTypes.LOAD_RECIPE,
+        recipe: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: 'LOAD_USERS_ERROR',
+      });
+    }
   };
 }

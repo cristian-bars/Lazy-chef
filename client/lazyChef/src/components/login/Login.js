@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {View, TouchableOpacity, Text, TextInput, Image} from 'react-native';
 import {addUsers} from '../../redux/actions/usersActionCreators';
 import {connect} from 'react-redux';
-import generalStyles from '../../../styles';
+import generalStyles from '../../../generalStyles';
 
 const Register = ({navigation, dispatch, user}) => {
   useEffect(() => {
