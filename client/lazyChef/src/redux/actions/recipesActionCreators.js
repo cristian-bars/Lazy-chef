@@ -24,7 +24,7 @@ export function loadRecipes() {
 export function addRecipe(recipe) {
   return async dispatch => {
     try {
-      const {data} = await axios(url, recipe);
+      const {data} = await axios.post(url, recipe);
       dispatch({
         type: actionTypes.ADD_RECIPE,
         recipe: data,
@@ -56,7 +56,7 @@ export function deleteRecipe(recipeId) {
 export function updateRecipe(recipe) {
   return async dispatch => {
     try {
-      const {data} = await axios.put(`${url}/${recipe._id}`, recipe);
+      const {data} = await axios.post(`${url}/${recipe._id}`, recipe);
       dispatch({
         type: actionTypes.UPDATE_RECIPE,
         recipe: data,

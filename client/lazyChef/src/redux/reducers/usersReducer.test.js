@@ -23,6 +23,11 @@ const updateAction = {
   user: {...usersList[0], password: '4321'},
 };
 
+const loadActionDefault = {
+  type: 'LOAD_USER_ERROR',
+  recipe: usersList[0],
+};
+
 describe('and invoked with a ADD_USER action', () => {
   test('should return an updated users list including the given user', () => {
     const result = usersReducer([{...usersList[0]}], addAction);
@@ -40,5 +45,12 @@ describe('and invoked with a UPDATE_USER action', () => {
         password: '4321',
       },
     ]);
+  });
+});
+
+describe('and resolved with default', () => {
+  test('then should return updatedRecipes', () => {
+    const result = usersReducer(undefined, loadActionDefault);
+    expect(result).toEqual([]);
   });
 });

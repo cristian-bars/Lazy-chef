@@ -33,6 +33,11 @@ const updateAction = {
   recipe: {...recipesList[0], author: 'Josep'},
 };
 
+const loadActionDefault = {
+  type: 'LOAD_RECIPE_ERROR',
+  recipe: recipesList[0],
+};
+
 describe('Given a recipesReducer', () => {
   describe('and invoked with a LOAD_RECIPES action', () => {
     test('should return an updated selectedRecipe', () => {
@@ -72,5 +77,12 @@ describe('and invoked with a UPDATE_RECIPE action and an id', () => {
         author: 'Josep',
       },
     ]);
+  });
+});
+
+describe('and resolved with default', () => {
+  test('then should return updatedRecipes', () => {
+    const result = recipesReducer(undefined, loadActionDefault);
+    expect(result).toEqual([]);
   });
 });

@@ -6,9 +6,10 @@ jest.mock('./actionTypes');
 
 describe('When invoked a getUserById func', () => {
   test('should return and async function', async () => {
-    axios.mockResolvedValueOnce({email: 'pepe@user.com'});
+    const user = {email: 'cristian@gmail.com'};
+    axios.mockResolvedValue(user);
     const dispatch = jest.fn();
-    await getUserById()(dispatch);
+    await getUserById(user)(dispatch);
     expect(dispatch).toHaveBeenCalled();
   });
   test('should dispatch LOAD_USER_ERROR', async () => {
@@ -52,7 +53,7 @@ describe('When invoked updateUser func', () => {
     const user = {
       email: 'jomateix@gmail.com',
     };
-    axios.post.mockResolvedValueOnce({email: 'jomateix@gmail.com'});
+    axios.post.mockResolvedValueOnce(user);
     const dispatch = jest.fn();
     await updateUser(user)(dispatch);
     expect(dispatch).toHaveBeenCalled();

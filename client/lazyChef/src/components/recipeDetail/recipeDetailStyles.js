@@ -14,21 +14,22 @@ const styles = StyleSheet.create({
   descriptionText: {
     fontSize: 20,
   },
-  recipeIcons: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-  },
   imageIcons: {
     width: 50,
     height: 50,
   },
   iconsDetail: {
-    fontSize: 60,
+    fontSize: 15,
   },
   recipeInfo: {
-    flex: 1,
     flexDirection: 'column',
+  },
+  infoContainer: {
+    padding: 10,
+  },
+  ingredientsDetail: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
   },
 });
 

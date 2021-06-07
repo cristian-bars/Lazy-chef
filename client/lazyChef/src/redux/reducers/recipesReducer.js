@@ -13,7 +13,9 @@ function recipesReducer(recipes = [], action) {
 
     case actionTypes.UPDATE_RECIPE:
       return recipes.map(recipe =>
-        recipe.id === action.recipe.id ? {...recipe, ...action.recipe} : recipe,
+        recipe._id === action.recipe._id
+          ? {...recipe, ...action.recipe}
+          : recipe,
       );
 
     default:
