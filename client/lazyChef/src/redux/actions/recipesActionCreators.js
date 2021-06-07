@@ -25,10 +25,10 @@ export function addRecipe(recipe) {
   return async dispatch => {
     try {
       const {data} = await axios(url, recipe);
-      return {
+      dispatch({
         type: actionTypes.ADD_RECIPE,
         recipe: data,
-      };
+      });
     } catch (error) {
       dispatch({
         type: 'ADD_RECIPE_ERROR',
@@ -39,24 +39,23 @@ export function addRecipe(recipe) {
 
 export function deleteRecipe(recipeId) {
   return async dispatch => {
-    await axios.delete(`${url}/${recipeId.id}`);
-    dispatch({
-      type: actionTypes.DELETE_RECIPE,
-      recipeId,
-    });
+    try {
+      await axios.delete(`${url}/${recipeId.id}`);
+      dispatch({
+        type: actionTypes.DELETE_RECIPE,
+        recipeId,
+      });
+    } catch (error) {
+      dispatch({
+        type: 'DELETE_RECIPE_ERROR',
+      });
+    }
   };
 }
 
 export function updateRecipe(recipe) {
   return {
     type: actionTypes.UPDATE_RECIPE,
-    recipe,
-  };
-}
-
-export function loadRecipe(recipe) {
-  return {
-    type: actionTypes.LOAD_RECIPE,
     recipe,
   };
 }
