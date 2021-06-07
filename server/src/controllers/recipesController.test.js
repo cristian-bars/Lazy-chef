@@ -2,7 +2,8 @@ const {
   getAll,
   addRecipe,
   delRecipe,
-  getById
+  getById,
+  updateRecipe
 } = require('./recipesController')();
 const Recipe = require('../models/recipesModel');
 
@@ -188,5 +189,37 @@ describe('getById', () => {
     await getById(req, res);
 
     expect(res.json).toHaveBeenCalledWith('un heroe');
+  });
+});
+
+describe('When invoked a updateRecipe', () => {
+  test('Should call a func json with', async () => {
+    const req = {
+      params: { recipes: 2 },
+      body: { recipe: 'Tallarines' }
+    };
+    const res = {
+      json: jest.fn(),
+      send: jest.fn(),
+      status: jest.fn()
+    };
+    Recipe.findByIdAndUpdate.mockResolvedValueOnce('Testing');
+    await updateRecipe(req, res);
+    expect(res.json).toHaveBeenCalledWith('Testing');
+  });
+
+  test('Should call a func send with error', async () => {
+    const req = {
+      params: { recipes: 5 },
+      body: { recipe: 'Tallarines' }
+    };
+    const res = {
+      json: jest.fn(),
+      send: jest.fn(),
+      status: jest.fn()
+    };
+    Recipe.findByIdAndUpdate.mockRejectedValueOnce('fideos');
+    await updateRecipe(req, res);
+    expect(res.send).toHaveBeenCalledWith('fideos');
   });
 });

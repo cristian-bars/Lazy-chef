@@ -6,14 +6,16 @@ function recipesReducer(recipes = [], action) {
       return action.recipes;
 
     case actionTypes.DELETE_RECIPE:
-      return recipes.filter(recipe => recipe.id !== action.recipeId.id);
+      return recipes.filter(recipe => recipe._id !== action.recipeId._id);
 
     case actionTypes.ADD_RECIPE:
       return [...recipes, action.recipe];
 
     case actionTypes.UPDATE_RECIPE:
       return recipes.map(recipe =>
-        recipe.id === action.recipe.id ? {...recipe, ...action.recipe} : recipe,
+        recipe._id === action.recipe._id
+          ? {...recipe, ...action.recipe}
+          : recipe,
       );
 
     default:

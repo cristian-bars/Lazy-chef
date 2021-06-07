@@ -45,11 +45,27 @@ function usersController() {
     }
   }
 
+  async function updateUser(req, res) {
+    try {
+      const updatedUser = await User.findByIdAndUpdate(
+        req.params.users,
+        req.body
+      );
+      res.status(200);
+      res.json(updatedUser);
+    } catch (error) {
+      res.status(404);
+      debug(error);
+      res.send(error);
+    }
+  }
+
   return {
     getAll,
     addUser,
     delUser,
-    getById
+    getById,
+    updateUser
   };
 }
 

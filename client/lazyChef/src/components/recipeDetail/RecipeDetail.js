@@ -1,17 +1,23 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {useEffect} from 'react';
-import {View, Text, Image} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
 import {PropTypes} from 'prop-types';
 import {getRecipeById} from '../../redux/actions/recipesActionCreators';
 import styles from './recipeDetailStyles';
+import generalStyles from '../../../generalStyles';
 
 const RecipeDetail = ({recipe, dispatch, route}) => {
+  const [isVisible, setIsVisible] = useState();
   const {recipeId} = route.params;
   useEffect(() => {
     dispatch(getRecipeById(recipeId));
   }, [recipeId]);
   console.log(recipe);
+
+  const toggleFunction = () => {
+    setIsVisible(!isVisible);
+  };
 
   return (
     <View style={styles.container}>
@@ -33,38 +39,56 @@ const RecipeDetail = ({recipe, dispatch, route}) => {
             )}
           </View>
 
-          <Text style={styles.titleText}>{recipe.title}</Text>
-          <Text style={styles.descriptionText}>{recipe.Description}</Text>
-          <View style={styles.recipeIcons}>
-            <View style={styles.recipeInfo}>
-              <Image
-                style={styles.imageIcons}
-                source={{
-                  uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
-                }}
-              />
-              <Text style={styles.iconsDetail}>
-                {recipe.recipeIngredient.length}
-              </Text>
+          <View style={styles.infoContainer}>
+            <Text style={styles.titleText}>{recipe.title}</Text>
+            <Text style={styles.descriptionText}>{recipe.Description}</Text>
+            <View style={generalStyles.rowArround}>
+              <View style={styles.recipeInfo}>
+                <Text style={styles.iconsDetail}>Ingredientes</Text>
+                <Image
+                  style={styles.imageIcons}
+                  source={{
+                    uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
+                  }}
+                />
+                <Text style={styles.iconsDetail}>
+                  {recipe.recipeIngredient.length}
+                </Text>
+              </View>
+              <View style={styles.recipeInfo}>
+                <Text style={styles.iconsDetail}>Dificultad</Text>
+                <Image
+                  style={styles.imageIcons}
+                  source={{
+                    uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
+                  }}
+                />
+                <Text style={styles.iconsDetail}>{recipe.difficulty}</Text>
+              </View>
+              <View style={styles.recipeInfo}>
+                <Text style={styles.iconsDetail}>Tiempo total</Text>
+                <Image
+                  style={styles.imageIcons}
+                  source={{
+                    uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
+                  }}
+                />
+                <Text style={styles.iconsDetail}>{recipe.totalTime}</Text>
+              </View>
             </View>
-            <View style={styles.recipeInfo}>
-              <Image
-                style={styles.imageIcons}
-                source={{
-                  uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
-                }}
-              />
-              <Text style={styles.iconsDetail}>{recipe.difficulty}</Text>
+            <View style={generalStyles.rowArround}>
+              <TouchableOpacity>
+                <Text>Ingredientes</Text>
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Text>Pasos</Text>
+              </TouchableOpacity>
             </View>
-            <View style={styles.recipeInfo}>
-              <Image
-                style={styles.imageIcons}
-                source={{
-                  uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
-                }}
-              />
-              <Text style={styles.iconsDetail}>{recipe.totalTime}</Text>
-            </View>
+            {isVisible ? (
+              <Text style={styles.text}>Hello World!</Text>
+            ) : (
+              <Text style={styles.text}>Good Night</Text>
+            )}
           </View>
         </>
       ) : (

@@ -48,6 +48,10 @@ const generalStyles = StyleSheet.create({
     fontWeight: 'bold',
     paddingVertical: 20,
   },
+  rowArround: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
 });
 
 export default generalStyles;

@@ -45,11 +45,27 @@ function recipesController() {
     }
   }
 
+  async function updateRecipe(req, res) {
+    try {
+      const updatedRecipe = await Recipe.findByIdAndUpdate(
+        req.params.recipes,
+        req.body
+      );
+      res.status(200);
+      res.json(updatedRecipe);
+    } catch (error) {
+      res.status(404);
+      debug(error);
+      res.send(error);
+    }
+  }
+
   return {
     getAll,
     addRecipe,
     delRecipe,
-    getById
+    getById,
+    updateRecipe
   };
 }
 
