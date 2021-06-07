@@ -19,10 +19,13 @@ const RecipeDetail = ({recipe, dispatch, route}) => {
         <>
           <View>
             {recipe.image[0] ? (
-              <Image style={styles.logo} source={{uri: recipe.image[0]}} />
+              <Image
+                style={styles.recipeImage}
+                source={{uri: recipe.image[0]}}
+              />
             ) : (
               <Image
-                style={styles.logo}
+                style={styles.recipeImage}
                 source={{
                   uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
                 }}
@@ -31,9 +34,38 @@ const RecipeDetail = ({recipe, dispatch, route}) => {
           </View>
 
           <Text style={styles.titleText}>{recipe.title}</Text>
-          <Text style={styles.titleText}>{recipe.Description}</Text>
-          <Text style={styles.titleText}>{recipe.totalTime}</Text>
-          <Text style={styles.titleText}>{recipe.calories}</Text>
+          <Text style={styles.descriptionText}>{recipe.Description}</Text>
+          <View style={styles.recipeIcons}>
+            <View style={styles.recipeInfo}>
+              <Image
+                style={styles.imageIcons}
+                source={{
+                  uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
+                }}
+              />
+              <Text style={styles.iconsDetail}>
+                {recipe.recipeIngredient.length}
+              </Text>
+            </View>
+            <View style={styles.recipeInfo}>
+              <Image
+                style={styles.imageIcons}
+                source={{
+                  uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
+                }}
+              />
+              <Text style={styles.iconsDetail}>{recipe.difficulty}</Text>
+            </View>
+            <View style={styles.recipeInfo}>
+              <Image
+                style={styles.imageIcons}
+                source={{
+                  uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
+                }}
+              />
+              <Text style={styles.iconsDetail}>{recipe.totalTime}</Text>
+            </View>
+          </View>
         </>
       ) : (
         <Text>No hi ha recepta a carregar</Text>

@@ -2,8 +2,8 @@ import actionTypes from './actionTypes';
 import axios from 'axios';
 
 //const url = 'http://localhost/recipes';
-//const url = 'http://192.168.0.29:2022/recipes';
-const url = 'http://192.168.1.130:2022/recipes';
+const url = 'http://192.168.0.29:2022/recipes';
+//const url = 'http://192.168.1.130:2022/recipes';
 
 export function loadRecipes() {
   return async dispatch => {
