@@ -72,7 +72,7 @@ export function getUserById(user) {
       });
     } catch (error) {
       dispatch({
-        type: 'LOAD_USERS_ERROR',
+        type: 'LOAD_USER_ERROR',
       });
     }
   };

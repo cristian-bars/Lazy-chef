@@ -63,7 +63,7 @@ export function getRecipeById(recipeId) {
       });
     } catch (error) {
       dispatch({
-        type: 'LOAD_USERS_ERROR',
+        type: 'LOAD_RECIPE_ERROR',
       });
     }
   };
