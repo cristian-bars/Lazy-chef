@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {getUserById, addUsers} from './usersActionCreators';
+import {getUserById, addUsers, updateUser} from './usersActionCreators';
 
 jest.mock('axios');
 jest.mock('./actionTypes');
@@ -44,5 +44,17 @@ describe('When invoked a addUsers func', () => {
     expect(dispatch).toHaveBeenCalledWith({
       type: 'ADD_USER_ERROR',
     });
+  });
+});
+
+describe('When invoked updateUser func', () => {
+  test('should call a async func', async () => {
+    const user = {
+      email: 'jomateix@gmail.com',
+    };
+    axios.post.mockResolvedValueOnce({email: 'jomateix@gmail.com'});
+    const dispatch = jest.fn();
+    await updateUser(user)(dispatch);
+    expect(dispatch).toHaveBeenCalled();
   });
 });

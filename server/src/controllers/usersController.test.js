@@ -2,7 +2,8 @@ const {
   getAll,
   addUser,
   delUser,
-  getById
+  getById,
+  updateUser
 } = require('./usersController')();
 const User = require('../models/usersModel');
 
@@ -188,5 +189,37 @@ describe('getById', () => {
     await getById(req, res);
 
     expect(res.json).toHaveBeenCalledWith('un heroe');
+  });
+});
+
+describe('When invoked a updateUser', () => {
+  test('Should call a func json with', async () => {
+    const req = {
+      params: { users: 2 },
+      body: { user: 'Cristian' }
+    };
+    const res = {
+      json: jest.fn(),
+      send: jest.fn(),
+      status: jest.fn()
+    };
+    User.findByIdAndUpdate.mockResolvedValueOnce('Testing');
+    await updateUser(req, res);
+    expect(res.json).toHaveBeenCalledWith('Testing');
+  });
+
+  test('Should call a func send with error', async () => {
+    const req = {
+      params: { users: 5 },
+      body: { user: 'peppacoe' }
+    };
+    const res = {
+      json: jest.fn(),
+      send: jest.fn(),
+      status: jest.fn()
+    };
+    User.findByIdAndUpdate.mockRejectedValueOnce('Cristian');
+    await updateUser(req, res);
+    expect(res.send).toHaveBeenCalledWith('Cristian');
   });
 });

@@ -23,7 +23,6 @@ export function addUsers(user) {
 }
 
 export function updateUser(user) {
-  console.log(user);
   return async dispatch => {
     await axios.post(`${url}/${user._id}`);
     dispatch({

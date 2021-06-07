@@ -4,6 +4,7 @@ import {
   getRecipeById,
   addRecipe,
   deleteRecipe,
+  updateRecipe,
 } from './recipesActionCreators';
 
 jest.mock('axios');
@@ -94,6 +95,30 @@ describe('When invoked a deleteRecipe', () => {
 
     expect(dispatch).toHaveBeenCalledWith({
       type: 'DELETE_RECIPE_ERROR',
+    });
+  });
+});
+
+describe('When invoked updateRecipe func', () => {
+  test('should call a async func', async () => {
+    const recipe = {
+      title: 'Sopa de la buena',
+    };
+    axios.post.mockResolvedValueOnce({title: 'Sopa de la buena'});
+    const dispatch = jest.fn();
+    await updateRecipe(recipe)(dispatch);
+    expect(dispatch).toHaveBeenCalled();
+  });
+  test('should dispatch UPDATE_RECIPE_ERROR', async () => {
+    const updateRecipeResponse = updateRecipe();
+    global.fetch = jest.fn().mockResolvedValue({
+      json: jest.fn().mockRejectedValue(),
+    });
+    const dispatch = jest.fn();
+    await updateRecipeResponse(dispatch);
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: 'UPDATE_RECIPE_ERROR',
     });
   });
 });

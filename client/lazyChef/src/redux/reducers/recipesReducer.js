@@ -6,7 +6,7 @@ function recipesReducer(recipes = [], action) {
       return action.recipes;
 
     case actionTypes.DELETE_RECIPE:
-      return recipes.filter(recipe => recipe.id !== action.recipeId.id);
+      return recipes.filter(recipe => recipe._id !== action.recipeId._id);
 
     case actionTypes.ADD_RECIPE:
       return [...recipes, action.recipe];

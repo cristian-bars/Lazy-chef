@@ -54,9 +54,18 @@ export function deleteRecipe(recipeId) {
 }
 
 export function updateRecipe(recipe) {
-  return {
-    type: actionTypes.UPDATE_RECIPE,
-    recipe,
+  return async dispatch => {
+    try {
+      const {data} = await axios.put(`${url}/${recipe._id}`, recipe);
+      dispatch({
+        type: actionTypes.UPDATE_RECIPE,
+        recipe: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: 'UPDATE_RECIPE_ERROR',
+      });
+    }
   };
 }
 
