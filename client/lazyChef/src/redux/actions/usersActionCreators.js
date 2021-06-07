@@ -32,7 +32,7 @@ export function addUsers(user) {
       });
     } catch (error) {
       dispatch({
-        type: 'LOAD_USERS_ERROR',
+        type: 'ADD_USER_ERROR',
       });
     }
   };

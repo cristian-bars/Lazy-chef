@@ -22,9 +22,18 @@ export function loadRecipes() {
 }
 
 export function addRecipe(recipe) {
-  return {
-    type: actionTypes.ADD_RECIPE,
-    recipe,
+  return async dispatch => {
+    try {
+      const {data} = await axios(url, recipe);
+      return {
+        type: actionTypes.ADD_RECIPE,
+        recipe: data,
+      };
+    } catch (error) {
+      dispatch({
+        type: 'ADD_RECIPE_ERROR',
+      });
+    }
   };
 }
 
@@ -53,7 +62,6 @@ export function loadRecipe(recipe) {
 }
 
 export function getRecipeById(recipeId) {
-  console.log(`${url}/${recipeId}`);
   return async dispatch => {
     try {
       const {data} = await axios(`${url}/${recipeId}`);

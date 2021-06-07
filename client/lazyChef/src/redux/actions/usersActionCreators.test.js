@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {getUserById} from './usersActionCreators';
+import {getUserById, addUsers} from './usersActionCreators';
 
 jest.mock('axios');
 jest.mock('./actionTypes');
@@ -21,6 +21,28 @@ describe('When invoked a getUserById func', () => {
 
     expect(dispatch).toHaveBeenCalledWith({
       type: 'LOAD_USER_ERROR',
+    });
+  });
+});
+
+describe('When invoked a addUsers func', () => {
+  test('should call a async func', async () => {
+    const data = {data: 'Pepe'};
+    axios.post.mockResolvedValueOnce(data);
+    const dispatch = jest.fn();
+    await addUsers(data)(dispatch);
+    expect(dispatch).toHaveBeenCalled();
+  });
+  test('should dispatch ADD_USER_ERROR', async () => {
+    const addUserResponse = addUsers();
+    global.fetch = jest.fn().mockResolvedValue({
+      json: jest.fn().mockRejectedValue(),
+    });
+    const dispatch = jest.fn();
+    await addUserResponse(dispatch);
+
+    expect(dispatch).toHaveBeenCalledWith({
+      type: 'ADD_USER_ERROR',
     });
   });
 });
