@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useState} from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Text, Image, TouchableOpacity, FlatList} from 'react-native';
 import {connect} from 'react-redux';
 import {PropTypes} from 'prop-types';
 import {getRecipeById} from '../../redux/actions/recipesActionCreators';
@@ -15,23 +15,35 @@ const RecipeDetail = ({recipe, dispatch, route, navigation: {goBack}}) => {
   }, [recipeId]);
   console.log(recipe);
 
+  const listRender = ({item}) => {
+    return <Text>{item}</Text>;
+  };
+
   const toggleFunction = () => {
     setIsVisible(!isVisible);
   };
 
   return (
     <View style={styles.container}>
-      {recipe ? (
+      {recipe._id ? (
         <>
           <View>
             {recipe.image[0] ? (
               <>
                 <TouchableOpacity
-                  style={generalStyles.roundButton}
+                  style={[styles.roundButton, styles.roundBackButton]}
                   onPress={() => goBack()}>
                   <Image
                     style={styles.backImage}
                     source={require('../../img/back.png')}
+                  />
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[styles.roundButton, styles.roundStarButton]}
+                  onPress={() => goBack()}>
+                  <Image
+                    style={styles.starImage}
+                    source={require('../../img/estrella.png')}
                   />
                 </TouchableOpacity>
                 <Image
@@ -42,12 +54,20 @@ const RecipeDetail = ({recipe, dispatch, route, navigation: {goBack}}) => {
             ) : (
               <>
                 <TouchableOpacity
-                  style={generalStyles.roundButton}
+                  style={[styles.roundButton, styles.roundBackButton]}
                   onPress={() => goBack()}>
                   <Image
                     style={styles.backImage}
                     source={require('../../img/back.png')}
                   />
+                  <TouchableOpacity
+                    style={[styles.roundButton, styles.roundStarButton]}
+                    onPress={() => goBack()}>
+                    <Image
+                      style={styles.starImage}
+                      source={require('../../img/estrella.png')}
+                    />
+                  </TouchableOpacity>
                 </TouchableOpacity>
                 <Image
                   style={styles.recipeImage}
@@ -61,8 +81,8 @@ const RecipeDetail = ({recipe, dispatch, route, navigation: {goBack}}) => {
 
           <View style={styles.infoContainer}>
             <Text style={styles.titleText}>{recipe.title}</Text>
-            <Text style={styles.descriptionText}>{recipe.Description}</Text>
-            <View style={generalStyles.rowArround}>
+            <View
+              style={[generalStyles.rowArround, {backgroundColor: 'white'}]}>
               <View style={styles.recipeInfo}>
                 <Text style={styles.iconsDetail}>Ingredientes</Text>
                 <Image
@@ -96,7 +116,7 @@ const RecipeDetail = ({recipe, dispatch, route, navigation: {goBack}}) => {
                 <Text style={styles.iconsDetail}>{recipe.totalTime}</Text>
               </View>
             </View>
-            <View style={generalStyles.rowArround}>
+            <View style={[generalStyles.rowArround, styles.recipeDetails]}>
               <TouchableOpacity>
                 <Text>Ingredientes</Text>
               </TouchableOpacity>
@@ -104,10 +124,19 @@ const RecipeDetail = ({recipe, dispatch, route, navigation: {goBack}}) => {
                 <Text>Pasos</Text>
               </TouchableOpacity>
             </View>
-            {isVisible ? (
-              <Text style={styles.text}>Hello World!</Text>
+            {!isVisible ? (
+              <View>
+                <FlatList
+                  style={styles.list}
+                  data={recipe.recipeIngredient}
+                  keyExtractor={item => item}
+                  renderItem={listRender}
+                />
+              </View>
             ) : (
-              <Text style={styles.text}>Good Night</Text>
+              <View>
+                <Text style={styles.text}>Good Night</Text>
+              </View>
             )}
           </View>
         </>
