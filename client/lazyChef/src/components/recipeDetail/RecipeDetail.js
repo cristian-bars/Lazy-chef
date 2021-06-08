@@ -7,7 +7,7 @@ import {getRecipeById} from '../../redux/actions/recipesActionCreators';
 import styles from './recipeDetailStyles';
 import generalStyles from '../../../generalStyles';
 
-const RecipeDetail = ({recipe, dispatch, route}) => {
+const RecipeDetail = ({recipe, dispatch, route, navigation: {goBack}}) => {
   const [isVisible, setIsVisible] = useState();
   const {recipeId} = route.params;
   useEffect(() => {
@@ -25,17 +25,37 @@ const RecipeDetail = ({recipe, dispatch, route}) => {
         <>
           <View>
             {recipe.image[0] ? (
-              <Image
-                style={styles.recipeImage}
-                source={{uri: recipe.image[0]}}
-              />
+              <>
+                <TouchableOpacity
+                  style={generalStyles.roundButton}
+                  onPress={() => goBack()}>
+                  <Image
+                    style={styles.backImage}
+                    source={require('../../img/back.png')}
+                  />
+                </TouchableOpacity>
+                <Image
+                  style={styles.recipeImage}
+                  source={{uri: recipe.image[0]}}
+                />
+              </>
             ) : (
-              <Image
-                style={styles.recipeImage}
-                source={{
-                  uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
-                }}
-              />
+              <>
+                <TouchableOpacity
+                  style={generalStyles.roundButton}
+                  onPress={() => goBack()}>
+                  <Image
+                    style={styles.backImage}
+                    source={require('../../img/back.png')}
+                  />
+                </TouchableOpacity>
+                <Image
+                  style={styles.recipeImage}
+                  source={{
+                    uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
+                  }}
+                />
+              </>
             )}
           </View>
 

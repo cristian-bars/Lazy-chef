@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
   },
   recipeImage: {
     height: 300,
+    position: 'relative',
   },
   titleText: {
     fontSize: 25,
@@ -30,6 +31,13 @@ const styles = StyleSheet.create({
   ingredientsDetail: {
     flexDirection: 'row',
     justifyContent: 'space-around',
+  },
+  backImage: {
+    width: 20,
+    height: 20,
+    position: 'relative',
+    top: -10,
+    left: -12,
   },
 });
 
