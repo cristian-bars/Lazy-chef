@@ -69,6 +69,21 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     marginTop: 10,
   },
+  information: {
+    backgroundColor: 'white',
+  },
+  informationTitle: {
+    fontSize: 20,
+    paddingVertical: 5,
+  },
+  recipeIngredient: {
+    paddingHorizontal: 20,
+    fontSize: 20,
+  },
+  informationTaps: {
+    width: 120,
+    height: 50,
+  },
 });
 
 export default styles;

@@ -1,6 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useState} from 'react';
-import {View, Text, Image, TouchableOpacity, FlatList} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  FlatList,
+  ScrollView,
+} from 'react-native';
 import {connect} from 'react-redux';
 import {PropTypes} from 'prop-types';
 import {getRecipeById} from '../../redux/actions/recipesActionCreators';
@@ -15,8 +22,12 @@ const RecipeDetail = ({recipe, dispatch, route, navigation: {goBack}}) => {
   }, [recipeId]);
   console.log(recipe);
 
-  const listRender = ({item}) => {
-    return <Text>{item}</Text>;
+  const IngredientsList = ({item}) => {
+    return <Text style={styles.recipeIngredient}>- {item}</Text>;
+  };
+
+  const StepsList = ({item}) => {
+    return <Text style={styles.recipeIngredient}>5 {item.name}</Text>;
   };
 
   const toggleFunction = () => {
@@ -24,7 +35,7 @@ const RecipeDetail = ({recipe, dispatch, route, navigation: {goBack}}) => {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {recipe._id ? (
         <>
           <View>
@@ -117,25 +128,30 @@ const RecipeDetail = ({recipe, dispatch, route, navigation: {goBack}}) => {
               </View>
             </View>
             <View style={[generalStyles.rowArround, styles.recipeDetails]}>
-              <TouchableOpacity>
-                <Text>Ingredientes</Text>
+              <TouchableOpacity style={styles.informationTaps}>
+                <Text style={styles.informationTitle}>Ingredientes</Text>
               </TouchableOpacity>
-              <TouchableOpacity>
-                <Text>Pasos</Text>
+              <TouchableOpacity style={styles.informationTaps}>
+                <Text style={styles.informationTitle}>Pasos</Text>
               </TouchableOpacity>
             </View>
-            {!isVisible ? (
-              <View>
+            {isVisible ? (
+              <View style={styles.information}>
                 <FlatList
                   style={styles.list}
                   data={recipe.recipeIngredient}
                   keyExtractor={item => item}
-                  renderItem={listRender}
+                  renderItem={IngredientsList}
                 />
               </View>
             ) : (
-              <View>
-                <Text style={styles.text}>Good Night</Text>
+              <View style={styles.information}>
+                <FlatList
+                  style={styles.list}
+                  data={recipe.recipeInstructions}
+                  keyExtractor={item => item.name}
+                  renderItem={StepsList}
+                />
               </View>
             )}
           </View>
@@ -143,7 +159,7 @@ const RecipeDetail = ({recipe, dispatch, route, navigation: {goBack}}) => {
       ) : (
         <Text>No hi ha recepta a carregar</Text>
       )}
-    </View>
+    </ScrollView>
   );
 };
 
