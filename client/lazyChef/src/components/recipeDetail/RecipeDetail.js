@@ -1,13 +1,20 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useState} from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  FlatList,
+  ScrollView,
+} from 'react-native';
 import {connect} from 'react-redux';
 import {PropTypes} from 'prop-types';
 import {getRecipeById} from '../../redux/actions/recipesActionCreators';
 import styles from './recipeDetailStyles';
 import generalStyles from '../../../generalStyles';
 
-const RecipeDetail = ({recipe, dispatch, route}) => {
+const RecipeDetail = ({recipe, dispatch, route, navigation: {goBack}}) => {
   const [isVisible, setIsVisible] = useState();
   const {recipeId} = route.params;
   useEffect(() => {
@@ -15,34 +22,78 @@ const RecipeDetail = ({recipe, dispatch, route}) => {
   }, [recipeId]);
   console.log(recipe);
 
+  const IngredientsList = ({item}) => {
+    return <Text style={styles.recipeIngredient}>- {item}</Text>;
+  };
+
+  const StepsList = ({item}) => {
+    return <Text style={styles.recipeIngredient}>5 {item.name}</Text>;
+  };
+
   const toggleFunction = () => {
     setIsVisible(!isVisible);
   };
 
   return (
-    <View style={styles.container}>
-      {recipe ? (
+    <ScrollView style={styles.container}>
+      {recipe._id ? (
         <>
           <View>
             {recipe.image[0] ? (
-              <Image
-                style={styles.recipeImage}
-                source={{uri: recipe.image[0]}}
-              />
+              <>
+                <TouchableOpacity
+                  style={[styles.roundButton, styles.roundBackButton]}
+                  onPress={() => goBack()}>
+                  <Image
+                    style={styles.backImage}
+                    source={require('../../img/back.png')}
+                  />
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[styles.roundButton, styles.roundStarButton]}
+                  onPress={() => goBack()}>
+                  <Image
+                    style={styles.starImage}
+                    source={require('../../img/estrella.png')}
+                  />
+                </TouchableOpacity>
+                <Image
+                  style={styles.recipeImage}
+                  source={{uri: recipe.image[0]}}
+                />
+              </>
             ) : (
-              <Image
-                style={styles.recipeImage}
-                source={{
-                  uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
-                }}
-              />
+              <>
+                <TouchableOpacity
+                  style={[styles.roundButton, styles.roundBackButton]}
+                  onPress={() => goBack()}>
+                  <Image
+                    style={styles.backImage}
+                    source={require('../../img/back.png')}
+                  />
+                  <TouchableOpacity
+                    style={[styles.roundButton, styles.roundStarButton]}
+                    onPress={() => goBack()}>
+                    <Image
+                      style={styles.starImage}
+                      source={require('../../img/estrella.png')}
+                    />
+                  </TouchableOpacity>
+                </TouchableOpacity>
+                <Image
+                  style={styles.recipeImage}
+                  source={{
+                    uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
+                  }}
+                />
+              </>
             )}
           </View>
 
           <View style={styles.infoContainer}>
             <Text style={styles.titleText}>{recipe.title}</Text>
-            <Text style={styles.descriptionText}>{recipe.Description}</Text>
-            <View style={generalStyles.rowArround}>
+            <View
+              style={[generalStyles.rowArround, {backgroundColor: 'white'}]}>
               <View style={styles.recipeInfo}>
                 <Text style={styles.iconsDetail}>Ingredientes</Text>
                 <Image
@@ -76,25 +127,39 @@ const RecipeDetail = ({recipe, dispatch, route}) => {
                 <Text style={styles.iconsDetail}>{recipe.totalTime}</Text>
               </View>
             </View>
-            <View style={generalStyles.rowArround}>
-              <TouchableOpacity>
-                <Text>Ingredientes</Text>
+            <View style={[generalStyles.rowArround, styles.recipeDetails]}>
+              <TouchableOpacity style={styles.informationTaps}>
+                <Text style={styles.informationTitle}>Ingredientes</Text>
               </TouchableOpacity>
-              <TouchableOpacity>
-                <Text>Pasos</Text>
+              <TouchableOpacity style={styles.informationTaps}>
+                <Text style={styles.informationTitle}>Pasos</Text>
               </TouchableOpacity>
             </View>
             {isVisible ? (
-              <Text style={styles.text}>Hello World!</Text>
+              <View style={styles.information}>
+                <FlatList
+                  style={styles.list}
+                  data={recipe.recipeIngredient}
+                  keyExtractor={item => item}
+                  renderItem={IngredientsList}
+                />
+              </View>
             ) : (
-              <Text style={styles.text}>Good Night</Text>
+              <View style={styles.information}>
+                <FlatList
+                  style={styles.list}
+                  data={recipe.recipeInstructions}
+                  keyExtractor={item => item.name}
+                  renderItem={StepsList}
+                />
+              </View>
             )}
           </View>
         </>
       ) : (
         <Text>No hi ha recepta a carregar</Text>
       )}
-    </View>
+    </ScrollView>
   );
 };
 
