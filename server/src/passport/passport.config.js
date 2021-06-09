@@ -1,30 +1,44 @@
+/* eslint-disable consistent-return */
 const passport = require('passport');
 const JWTstrategy = require('passport-jwt');
-const localStrategy = require('passport-local');
+const LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/usersModel');
 
 passport.use(
   'signup',
-  new localStrategy.Strategy(
+  new LocalStrategy(
     {
       usernameField: 'email',
-      passwordField: 'password'
+      passwordField: 'password',
+      passReqToCallback: true
     },
-    async (email, password, done) => {
+    (async (req, email, password, done) => {
       try {
-        const user = await User.create({ email, password });
+        const user = await User.findOne({ email });
 
-        return done(null, user);
+        if (user !== null) {
+          return done(null, false, { message: 'Email already taken' });
+        }
+
+        if (user === null) {
+          const newUser = await User.create({
+            email: email.toLowerCase(),
+            password,
+            name: req.body.name.toLowerCase()
+          });
+
+          return done(null, newUser);
+        }
       } catch (error) {
         return done(error);
       }
-    }
+    })
   )
 );
 
 passport.use(
   'login',
-  new localStrategy.Strategy(
+  new LocalStrategy(
     {
       usernameField: 'email',
       passwordField: 'password'

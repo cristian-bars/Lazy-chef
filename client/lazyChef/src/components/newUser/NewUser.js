@@ -10,11 +10,12 @@ const Register = ({navigation, dispatch, user, navigation: {goBack}}) => {
     user.email && navigation.navigate('Home');
   }, [user, navigation]);
 
+  let [name, showName] = useState('');
   let [email, showEmail] = useState('');
   let [password, showPassword] = useState('');
 
   const newUser = () => {
-    dispatch(addUsers({email, password}));
+    dispatch(addUsers({name, email, password}));
   };
   return (
     <View style={generalStyles.container}>
@@ -33,6 +34,11 @@ const Register = ({navigation, dispatch, user, navigation: {goBack}}) => {
         }}
       />
       <Text style={generalStyles.title}>Nuevo usuario</Text>
+      <TextInput
+        style={generalStyles.formLogin}
+        placeholder="Nombre"
+        onChangeText={name => showName(name)}
+      />
       <TextInput
         style={generalStyles.formLogin}
         placeholder="Email"
