@@ -8,6 +8,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Home from './src/components/home/Home';
 import store from './src/redux/stores/index';
 import RecipeDetail from './src/components/recipeDetail/RecipeDetail';
+import UserDetail from './src/components/userDetail/UserDetail';
 
 const Tab = createBottomTabNavigator();
 
@@ -32,6 +33,7 @@ function App() {
           />
           <Tab.Screen name="Profile" component={Home} />
           <Tab.Screen name="Detail" component={RecipeDetail} />
+          <Tab.Screen name="User" component={UserDetail} />
         </Tab.Navigator>
       </NavigationContainer>
     </Provider>

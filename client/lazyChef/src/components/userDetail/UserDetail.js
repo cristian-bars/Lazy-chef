@@ -1,34 +1,31 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, {useEffect} from 'react';
-import {View, Text} from 'react-native';
+import React from 'react';
+import {View, Text, TouchableOpacity, Image} from 'react-native';
 import {connect} from 'react-redux';
-import {PropTypes} from 'prop-types';
-import {getUserById} from '../../redux/actions/usersActionCreators';
-import styles from './recipeDetailStyles';
+import styles from './userDetailStyles';
+import generalStyles from '../../../generalStyles';
 
-const UserDetail = ({user, dispatch, route}) => {
-  const {recipeId} = route.params;
-  useEffect(() => {
-    dispatch(getUserById(recipeId));
-  }, [recipeId]);
-
+const UserDetail = ({userAcces, navigation: {goBack}}) => {
+  console.log(userAcces);
   return (
     <View style={styles.container}>
+      <TouchableOpacity
+        style={[generalStyles.roundButton, generalStyles.roundBackButton]}
+        onPress={() => goBack()}>
+        <Image
+          style={generalStyles.backImage}
+          source={require('../../img/back.png')}
+        />
+      </TouchableOpacity>
       <View>
-        <Text style={styles.titleText}>{user.title}</Text>
+        <Text style={styles.titleText}>Hola {userAcces.user.email}</Text>
       </View>
     </View>
   );
 };
 
-UserDetail.propTypes = {
-  user: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  dispatch: PropTypes.func.isRequired,
-};
-
-function mapStateToProps(store) {
+function mapStateToProps({userAcces}) {
   return {
-    user: store.user,
+    userAcces,
   };
 }
 

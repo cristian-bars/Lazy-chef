@@ -50,6 +50,7 @@ authRoutes.post(
               refreshTokens.push(refreshToken);
 
               return res.json({
+                user,
                 token,
                 refreshToken
               });
