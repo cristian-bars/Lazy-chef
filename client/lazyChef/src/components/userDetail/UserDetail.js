@@ -1,34 +1,51 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, {useEffect} from 'react';
-import {View, Text} from 'react-native';
+import React from 'react';
+import {View, Text, TouchableOpacity, Image} from 'react-native';
 import {connect} from 'react-redux';
-import {PropTypes} from 'prop-types';
-import {getUserById} from '../../redux/actions/usersActionCreators';
-import styles from './recipeDetailStyles';
+import styles from './userDetailStyles';
+import generalStyles from '../../../generalStyles';
 
-const UserDetail = ({user, dispatch, route}) => {
-  const {recipeId} = route.params;
-  useEffect(() => {
-    dispatch(getUserById(recipeId));
-  }, [recipeId]);
-
+const UserDetail = ({userAcces, navigation: {goBack}, navigation}) => {
+  console.log(userAcces);
   return (
     <View style={styles.container}>
-      <View>
-        <Text style={styles.titleText}>{user.title}</Text>
-      </View>
+      <TouchableOpacity
+        style={[generalStyles.roundButton, generalStyles.roundBackButton]}
+        onPress={() => goBack()}>
+        <Image
+          style={generalStyles.backImage}
+          source={require('../../img/back.png')}
+        />
+      </TouchableOpacity>
+      {userAcces.user ? (
+        <View style={styles.userContainer}>
+          <Text style={styles.titleText}>Hola {userAcces.user.email}</Text>
+          <Image
+            style={styles.userImage}
+            source={{uri: userAcces.user.image}}
+          />
+          <TouchableOpacity
+            style={generalStyles.button}
+            onPress={() => navigation.navigate('AddRecipe')}>
+            <Text style={generalStyles.baseText}>Añadir receta</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={generalStyles.button}
+            onPress={() => navigation.navigate('Home')}>
+            <Text style={generalStyles.baseText}>Desconectar</Text>
+          </TouchableOpacity>
+        </View>
+      ) : (
+        <View>
+          <Text style={styles.titleText}>No hi ha usuari carregat</Text>
+        </View>
+      )}
     </View>
   );
 };
 
-UserDetail.propTypes = {
-  user: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  dispatch: PropTypes.func.isRequired,
-};
-
-function mapStateToProps(store) {
+function mapStateToProps({userAcces}) {
   return {
-    user: store.user,
+    userAcces,
   };
 }
 

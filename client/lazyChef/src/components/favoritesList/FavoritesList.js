@@ -5,8 +5,9 @@ import {connect} from 'react-redux';
 import {PropTypes} from 'prop-types';
 import {useNavigation} from '@react-navigation/native';
 import {loadRecipes} from '../../redux/actions/recipesActionCreators';
-import styles from './HomeStyles';
-const Home = ({recipes, dispatch}) => {
+import styles from './favoritesListStyles';
+
+const RecipesList = ({recipes, dispatch}) => {
   const navigation = useNavigation();
   useEffect(() => {
     if (!recipes.length) {
@@ -92,7 +93,7 @@ const Home = ({recipes, dispatch}) => {
   );
 };
 
-Home.propTypes = {
+RecipesList.propTypes = {
   recipes: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   dispatch: PropTypes.func.isRequired,
 };
@@ -103,4 +104,4 @@ function mapStateToProps(store) {
   };
 }
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(RecipesList);

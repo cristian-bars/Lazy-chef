@@ -4,7 +4,7 @@ const UserSchema = Schema({
   name: String,
   email: String,
   password: String,
-  image: [String],
+  image: String,
   recipesCreated: [String],
   favouriteRecipes: [String]
 });

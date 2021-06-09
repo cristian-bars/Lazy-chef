@@ -1,21 +1,23 @@
 /* eslint-disable no-shadow */
 import React, {useEffect, useState} from 'react';
-import {View, TouchableOpacity, Text, TextInput, Image} from 'react-native';
-import {addUsers} from '../../redux/actions/usersActionCreators';
 import {connect} from 'react-redux';
+import {View, Image, TouchableOpacity, Text, TextInput} from 'react-native';
+import {getUserById} from '../../redux/actions/usersActionCreators';
+import styles from './loginStyles';
 import generalStyles from '../../../generalStyles';
 
-const Register = ({navigation, dispatch, user}) => {
+const Login = ({navigation, dispatch, userAcces}) => {
   useEffect(() => {
-    user && navigation.navigate('Home');
-  }, [user, navigation]);
+    userAcces.token && navigation.navigate('RecipeList');
+  }, [userAcces, navigation]);
 
   let [email, showEmail] = useState('');
   let [password, showPassword] = useState('');
 
-  const newUser = () => {
-    dispatch(addUsers({email, password}));
+  const loginClick = () => {
+    dispatch(getUserById({email, password}));
   };
+
   return (
     <View style={generalStyles.container}>
       <Image
@@ -24,7 +26,7 @@ const Register = ({navigation, dispatch, user}) => {
           uri: 'https://i.ibb.co/MVc000Y/Logo-transparent-Patxi.png',
         }}
       />
-      <Text style={generalStyles.title}>Nuevo usuario</Text>
+      <Text style={generalStyles.title} />
       <TextInput
         style={generalStyles.formLogin}
         placeholder="Email"
@@ -35,18 +37,22 @@ const Register = ({navigation, dispatch, user}) => {
         placeholder="Password"
         onChangeText={password => showPassword(password)}
       />
-      <TouchableOpacity style={generalStyles.button} onPress={() => newUser()}>
-        <Text style={generalStyles.baseText}>Registrarse</Text>
+      <TouchableOpacity style={generalStyles.button} onPress={loginClick}>
+        <Text style={generalStyles.baseText}>Acceder</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.touchRegister}
+        onPress={() => navigation.navigate('Register')}>
+        <Text style={styles.register}>Crear una cuenta</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
-function mapStateToProps({userAcces, user}) {
+function mapStateToProps({userAcces}) {
   return {
     userAcces,
-    user,
   };
 }
 
-export default connect(mapStateToProps)(Register);
+export default connect(mapStateToProps)(Login);
