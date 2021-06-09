@@ -76,6 +76,10 @@ const generalStyles = StyleSheet.create({
     top: -10,
     left: -12,
   },
+  tabIcon: {
+    width: 30,
+    height: 30,
+  },
 });
 
 export default generalStyles;
