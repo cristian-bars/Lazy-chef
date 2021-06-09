@@ -5,7 +5,7 @@ import {addUsers} from '../../redux/actions/usersActionCreators';
 import {connect} from 'react-redux';
 import generalStyles from '../../../generalStyles';
 
-const Register = ({navigation, dispatch, user}) => {
+const Register = ({navigation, dispatch, user, navigation: {goBack}}) => {
   useEffect(() => {
     user && navigation.navigate('Home');
   }, [user, navigation]);
@@ -18,6 +18,14 @@ const Register = ({navigation, dispatch, user}) => {
   };
   return (
     <View style={generalStyles.container}>
+      <TouchableOpacity
+        style={[generalStyles.roundButton, generalStyles.roundBackButton]}
+        onPress={() => goBack()}>
+        <Image
+          style={generalStyles.backImage}
+          source={require('../../img/back.png')}
+        />
+      </TouchableOpacity>
       <Image
         style={generalStyles.logo}
         source={{
