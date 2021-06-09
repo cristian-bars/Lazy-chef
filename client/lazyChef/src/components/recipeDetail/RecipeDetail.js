@@ -42,15 +42,21 @@ const RecipeDetail = ({recipe, dispatch, route, navigation: {goBack}}) => {
             {recipe.image[0] ? (
               <>
                 <TouchableOpacity
-                  style={[styles.roundButton, styles.roundBackButton]}
+                  style={[
+                    generalStyles.roundButton,
+                    generalStyles.roundBackButton,
+                  ]}
                   onPress={() => goBack()}>
                   <Image
-                    style={styles.backImage}
+                    style={generalStyles.backImage}
                     source={require('../../img/back.png')}
                   />
                 </TouchableOpacity>
                 <TouchableOpacity
-                  style={[styles.roundButton, styles.roundStarButton]}
+                  style={[
+                    generalStyles.roundButton,
+                    generalStyles.roundStarButton,
+                  ]}
                   onPress={() => goBack()}>
                   <Image
                     style={styles.starImage}
@@ -65,14 +71,20 @@ const RecipeDetail = ({recipe, dispatch, route, navigation: {goBack}}) => {
             ) : (
               <>
                 <TouchableOpacity
-                  style={[styles.roundButton, styles.roundBackButton]}
+                  style={[
+                    generalStyles.roundButton,
+                    generalStyles.roundBackButton,
+                  ]}
                   onPress={() => goBack()}>
                   <Image
-                    style={styles.backImage}
+                    style={generalStyles.backImage}
                     source={require('../../img/back.png')}
                   />
                   <TouchableOpacity
-                    style={[styles.roundButton, styles.roundStarButton]}
+                    style={[
+                      generalStyles.roundButton,
+                      generalStyles.roundStarButton,
+                    ]}
                     onPress={() => goBack()}>
                     <Image
                       style={styles.starImage}
