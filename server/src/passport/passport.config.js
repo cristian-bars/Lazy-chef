@@ -2,7 +2,6 @@
 const passport = require('passport');
 const JWTstrategy = require('passport-jwt');
 const LocalStrategy = require('passport-local').Strategy;
-const md5 = require('md5');
 const User = require('../models/usersModel');
 
 passport.use(
