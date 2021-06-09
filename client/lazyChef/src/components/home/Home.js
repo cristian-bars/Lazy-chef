@@ -6,6 +6,7 @@ import {PropTypes} from 'prop-types';
 import {useNavigation} from '@react-navigation/native';
 import {loadRecipes} from '../../redux/actions/recipesActionCreators';
 import styles from './HomeStyles';
+
 const Home = ({recipes, dispatch}) => {
   const navigation = useNavigation();
   useEffect(() => {

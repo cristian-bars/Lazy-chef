@@ -176,7 +176,6 @@ const RecipeDetail = ({recipe, dispatch, route, navigation: {goBack}}) => {
 };
 
 RecipeDetail.propTypes = {
-  recipe: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   dispatch: PropTypes.func.isRequired,
 };
 
