@@ -9,12 +9,11 @@ import styles from './favoritesListStyles';
 const RecipesList = ({recipes, dispatch, userAccess}) => {
   const recipesList = recipes;
 
-  console.log(userAccess.user.favouriteRecipes);
-  const myPlantsIds = userAccess.user.favouriteRecipes;
+  const myRecipesIds = userAccess.user.favouriteRecipes;
   let myRecipe = [];
   let myRecipesList = [];
-  if (myPlantsIds.length) {
-    myPlantsIds.forEach(id => {
+  if (myRecipesIds.length) {
+    myRecipesIds.forEach(id => {
       myRecipe = recipesList.find(recipe => recipe._id === id);
       myRecipesList.push(myRecipe);
     });

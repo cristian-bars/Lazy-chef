@@ -13,9 +13,6 @@ function userByIdReducer(userToken = {}, action) {
           ...action.user,
         },
       };
-    // return users.map(user =>
-    //   user.id === action.user._id ? {...user, ...action.user} : user,
-    // );
 
     default:
       return userToken;
