@@ -14,9 +14,10 @@ const NewRecipe = ({userAcces, dispatch, navigation, navigation: {goBack}}) => {
   let [title, showTitle] = useState('');
   let [description, showDescription] = useState('');
   const author = userAcces.user.name;
+  const datePublished = new Date();
 
   const addNewRecipe = () => {
-    dispatch(addRecipe({title, description, author}));
+    dispatch(addRecipe({title, description, author, datePublished}));
   };
 
   return (
