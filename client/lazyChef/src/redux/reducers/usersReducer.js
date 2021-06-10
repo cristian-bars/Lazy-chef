@@ -5,11 +5,6 @@ function usersReducer(users = [], action) {
     case actionTypes.ADD_USER:
       return [...users, action.newUser];
 
-    case actionTypes.UPDATE_USER:
-      return users.map(user =>
-        user.id === action.user.id ? {...user, ...action.user} : user,
-      );
-
     default:
       return users;
   }
