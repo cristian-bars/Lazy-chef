@@ -1,19 +1,27 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {useEffect} from 'react';
+import React from 'react';
 import {View, Text, FlatList, Image, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
 import {PropTypes} from 'prop-types';
 import {useNavigation} from '@react-navigation/native';
-import {loadRecipes} from '../../redux/actions/recipesActionCreators';
 import styles from './favoritesListStyles';
 
-const RecipesList = ({recipes, dispatch}) => {
+const RecipesList = ({recipes, dispatch, userAccess}) => {
+  const recipesList = recipes;
+
+  console.log(userAccess.user.favouriteRecipes);
+  const myPlantsIds = userAccess.user.favouriteRecipes;
+  let myRecipe = [];
+  let myRecipesList = [];
+  if (myPlantsIds.length) {
+    myPlantsIds.forEach(id => {
+      myRecipe = recipesList.find(recipe => recipe._id === id);
+      myRecipesList.push(myRecipe);
+    });
+  }
+
+  console.log(myRecipesList);
   const navigation = useNavigation();
-  useEffect(() => {
-    if (!recipes.length) {
-      dispatch(loadRecipes());
-    }
-  }, [recipes]);
 
   const listRender = ({item}) => {
     return (
@@ -81,8 +89,8 @@ const RecipesList = ({recipes, dispatch}) => {
         {recipes.length ? (
           <FlatList
             style={styles.list}
-            data={recipes}
-            keyExtractor={item => item._id}
+            data={myRecipesList}
+            keyExtractor={item => item.title}
             renderItem={listRender}
           />
         ) : (
@@ -101,6 +109,7 @@ RecipesList.propTypes = {
 function mapStateToProps(store) {
   return {
     recipes: store.recipes,
+    userAccess: store.userAcces,
   };
 }
 

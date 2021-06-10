@@ -23,12 +23,23 @@ export function addUsers(user) {
 }
 
 export function updateUser(user) {
+  const tokenBearer = {headers: {Authorization: `Bearer ${user.bearerToken}`}};
   return async dispatch => {
-    await axios.post(`${url}/${user._id}`);
-    dispatch({
-      type: actionTypes.UPDATE_USER,
-      user,
-    });
+    try {
+      const {data} = await axios.put(
+        `${url}/users/${user.id}`,
+        user,
+        tokenBearer,
+      );
+      dispatch({
+        type: actionTypes.UPDATE_USER,
+        user: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: 'UPDATE_USER_ERROR',
+      });
+    }
   };
 }
 

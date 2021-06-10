@@ -11,16 +11,23 @@ import {
 import {connect} from 'react-redux';
 import {PropTypes} from 'prop-types';
 import {getRecipeById} from '../../redux/actions/recipesActionCreators';
+import {updateUser} from '../../redux/actions/usersActionCreators';
 import styles from './recipeDetailStyles';
 import generalStyles from '../../../generalStyles';
 
-const RecipeDetail = ({recipe, dispatch, route, navigation: {goBack}}) => {
+const RecipeDetail = ({
+  recipe,
+  dispatch,
+  route,
+  navigation: {goBack},
+  userAcces,
+}) => {
   const [isVisible, setIsVisible] = useState();
   const {recipeId} = route.params;
+
   useEffect(() => {
     dispatch(getRecipeById(recipeId));
-  }, [recipeId]);
-  console.log(recipe);
+  }, [recipeId, dispatch]);
 
   const IngredientsList = ({item}) => {
     return <Text style={styles.recipeIngredient}>- {item}</Text>;
@@ -29,6 +36,34 @@ const RecipeDetail = ({recipe, dispatch, route, navigation: {goBack}}) => {
   const StepsList = ({item}) => {
     return <Text style={styles.recipeIngredient}>5 {item.name}</Text>;
   };
+
+  function addFav() {
+    console.log('afegeixo');
+    console.log(userAcces.user.favouriteRecipes);
+    console.log(recipe._id);
+    dispatch(
+      updateUser({
+        id: userAcces.user._id,
+        favouriteRecipes: [...userAcces.user.favouriteRecipes, recipe._id],
+        bearerToken: userAcces.token,
+      }),
+    );
+    console.log(userAcces.user.favouriteRecipes);
+  }
+
+  function removeFav() {
+    console.log('elimino');
+    let arr = [...userAcces.user.favouriteRecipes];
+    arr.splice(arr.indexOf(recipe._id), 1);
+    console.log(arr);
+    dispatch(
+      updateUser({
+        id: userAcces.user._id,
+        favouriteRecipes: arr,
+        bearerToken: userAcces.token,
+      }),
+    );
+  }
 
   const toggleFunction = () => {
     setIsVisible(!isVisible);
@@ -57,11 +92,22 @@ const RecipeDetail = ({recipe, dispatch, route, navigation: {goBack}}) => {
                     generalStyles.roundButton,
                     generalStyles.roundStarButton,
                   ]}
-                  onPress={() => goBack()}>
-                  <Image
-                    style={styles.starImage}
-                    source={require('../../img/estrella.png')}
-                  />
+                  onPress={() => {
+                    userAcces.user.favouriteRecipes.includes(recipe._id)
+                      ? removeFav(recipe._id)
+                      : addFav(recipe._id);
+                  }}>
+                  {userAcces.user.favouriteRecipes.includes(recipe._id) ? (
+                    <Image
+                      style={styles.starImage}
+                      source={require('../../img/estrella_groga.png')}
+                    />
+                  ) : (
+                    <Image
+                      style={styles.starImage}
+                      source={require('../../img/estrella.png')}
+                    />
+                  )}
                 </TouchableOpacity>
                 <Image
                   style={styles.recipeImage}
@@ -182,6 +228,7 @@ RecipeDetail.propTypes = {
 function mapStateToProps(store) {
   return {
     recipe: store.recipe,
+    userAcces: store.userAcces,
   };
 }
 
