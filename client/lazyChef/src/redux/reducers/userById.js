@@ -5,6 +5,18 @@ function userByIdReducer(userToken = {}, action) {
     case actionTypes.LOAD_USER:
       return action.userToken;
 
+    case actionTypes.UPDATE_USER:
+      return {
+        ...userToken,
+        user: {
+          ...userToken.user,
+          ...action.user,
+        },
+      };
+    // return users.map(user =>
+    //   user.id === action.user._id ? {...user, ...action.user} : user,
+    // );
+
     default:
       return userToken;
   }
