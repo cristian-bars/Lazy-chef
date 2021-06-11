@@ -1,6 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect} from 'react';
-import {View, Text, FlatList, Image, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  Image,
+  TouchableOpacity,
+  TextInput,
+} from 'react-native';
 import {connect} from 'react-redux';
 import {PropTypes} from 'prop-types';
 import {useNavigation} from '@react-navigation/native';
@@ -71,11 +78,17 @@ const RecipesList = ({recipes, dispatch}) => {
   return (
     <View style={styles.container}>
       <View>
-        {/* <SearchBar
-          placeholder="Type Here to Search..."
-          onChangeText={this.updateSearch}
-          value={search}
-        /> */}
+        <View style={styles.input}>
+          <Image
+            style={styles.searchImage}
+            source={require('../../img/search.png')}
+          />
+          <TextInput
+            style={styles.inputText}
+            placeholder="Buscar"
+            autoCapitalize="none"
+          />
+        </View>
       </View>
       <View>
         {recipes.length ? (

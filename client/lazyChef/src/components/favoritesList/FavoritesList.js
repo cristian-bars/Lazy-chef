@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 import {View, Text, FlatList, Image, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
@@ -77,13 +76,6 @@ const RecipesList = ({recipes, dispatch, userAccess}) => {
   };
   return (
     <View style={styles.container}>
-      <View>
-        {/* <SearchBar
-          placeholder="Type Here to Search..."
-          onChangeText={this.updateSearch}
-          value={search}
-        /> */}
-      </View>
       <View>
         {recipes.length ? (
           <FlatList
