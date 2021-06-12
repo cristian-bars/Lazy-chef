@@ -52,6 +52,9 @@ const generalStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
+  background: {
+    backgroundColor: 'white',
+  },
   roundButton: {
     position: 'absolute',
     zIndex: 1,

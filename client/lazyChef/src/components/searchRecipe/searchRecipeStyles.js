@@ -3,35 +3,9 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#D3E0FF',
+    justifyContent: 'center',
   },
-  logo: {
-    height: 150,
-  },
-  imageIcons: {
-    width: 50,
-    height: 50,
-  },
-  recipeDetail: {
-    flexDirection: 'column',
-    backgroundColor: 'white',
-    margin: 10,
-  },
-  titleText: {
-    fontSize: 20,
-    flex: 1,
-    padding: 10,
-    flexWrap: 'wrap',
-  },
-  descriptionText: {
-    fontSize: 15,
-    flexWrap: 'wrap',
-    padding: 10,
-  },
-  recipeIcons: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-  },
+  content: {},
   input: {
     width: 360,
     marginTop: 20,
@@ -57,22 +31,23 @@ const styles = StyleSheet.create({
     height: 30,
     opacity: 0.7,
   },
-  ingList: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-  ingredientsList: {
-    marginHorizontal: 10,
+  wordsList: {
     backgroundColor: 'white',
-    fontSize: 30,
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+    margin: 10,
+    padding: 10,
+    width: 360,
   },
   wordsTitle: {
-    fontSize: 30,
-    color: '#FF914D',
+    fontSize: 20,
     backgroundColor: 'white',
   },
-  optionslist: {
-    flexWrap: 'wrap',
+  list: {
+    height: 200,
+  },
+  searchWord: {
+    paddingVertical: 10,
   },
 });
 

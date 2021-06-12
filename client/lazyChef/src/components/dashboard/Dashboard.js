@@ -1,17 +1,21 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect} from 'react';
-import {View, Text, FlatList, Image, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  Image,
+  TouchableOpacity,
+  TextInput,
+} from 'react-native';
 import {connect} from 'react-redux';
 import {PropTypes} from 'prop-types';
 import {useNavigation} from '@react-navigation/native';
 import {loadRecipes} from '../../redux/actions/recipesActionCreators';
-import styles from './recipesListStyles';
+import styles from './dashboardStyles';
 
-const RecipesList = ({recipes, dispatch, route}) => {
+const RecipesList = ({recipes, dispatch}) => {
   const navigation = useNavigation();
-  const {ingredient} = route.params;
-  console.log('ingredients??');
-  console.log(ingredient);
   useEffect(() => {
     if (!recipes.length) {
       dispatch(loadRecipes());
@@ -72,20 +76,60 @@ const RecipesList = ({recipes, dispatch, route}) => {
     );
   };
 
-  const ingredientRender = ({item}) => {
-    return <Text style={styles.ingredientsList}>{item}</Text>;
+  const Words = () => {
+    return (
+      <View style={styles.wordsList}>
+        <Text style={styles.wordsTitle}>Ingredientes</Text>
+        <View style={styles.list}>
+          <TouchableOpacity
+            style={styles.searchWord}
+            onPress={() =>
+              navigation.navigate('SearchRecipe', {ingredient: 'Huevo'})
+            }>
+            <Text>Huevo</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.searchWord}
+            onPress={() =>
+              navigation.navigate('SearchRecipe', {ingredient: 'Tomate'})
+            }>
+            <Text>Tomate</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.searchWord}
+            onPress={() =>
+              navigation.navigate('SearchRecipe', {ingredient: 'Judías'})
+            }>
+            <Text>Judías</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.searchWord}
+            onPress={() =>
+              navigation.navigate('SearchRecipe', {ingredient: 'Arroz'})
+            }>
+            <Text>Arroz</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
   };
   return (
     <View style={styles.container}>
-      <View style={styles.ingList}>
-        <Text style={styles.wordsTitle}>Recetas con </Text>
-        <FlatList
-          style={styles.optionslist}
-          data={ingredient}
-          horizontal={true}
-          keyExtractor={item => item}
-          renderItem={ingredientRender}
-        />
+      <View>
+        <View style={styles.input}>
+          <Image
+            style={styles.searchImage}
+            source={require('../../img/search.png')}
+          />
+          <TextInput
+            style={styles.inputText}
+            placeholder="Buscar"
+            autoCapitalize="none"
+          />
+        </View>
+      </View>
+      <View>
+        <Words />
       </View>
       <View>
         {recipes.length ? (

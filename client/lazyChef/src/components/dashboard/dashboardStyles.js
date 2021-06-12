@@ -57,22 +57,23 @@ const styles = StyleSheet.create({
     height: 30,
     opacity: 0.7,
   },
-  ingList: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-  ingredientsList: {
-    marginHorizontal: 10,
+  wordsList: {
     backgroundColor: 'white',
-    fontSize: 30,
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+    margin: 10,
+    padding: 10,
   },
   wordsTitle: {
     fontSize: 30,
     color: '#FF914D',
     backgroundColor: 'white',
   },
-  optionslist: {
-    flexWrap: 'wrap',
+  list: {
+    // flexDirection: 'row',
+  },
+  searchWord: {
+    marginVertical: 10,
   },
 });
 
