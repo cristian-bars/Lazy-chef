@@ -13,6 +13,8 @@ import UserDetail from './src/components/userDetail/UserDetail';
 import NewRecipe from './src/components/newRecipe/NewRecipe';
 import generalStyles from './generalStyles';
 import FavoritesList from './src/components/favoritesList/FavoritesList';
+import Dashboard from './src/components/dashboard/Dashboard';
+import SearchRecipe from './src/components/searchRecipe/SearchRecipe';
 
 const Tab = createBottomTabNavigator();
 
@@ -22,9 +24,14 @@ const App = () => {
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={({route}) => ({
-            tabBarButton: ['Home', 'Register', 'AddRecipe', 'Detail'].includes(
-              route.name,
-            )
+            tabBarButton: [
+              'Home',
+              'Register',
+              'AddRecipe',
+              'Detail',
+              'RecipeList',
+              'SearchRecipe',
+            ].includes(route.name)
               ? () => {
                   return null;
                 }
@@ -47,9 +54,11 @@ const App = () => {
               tabBarVisible: false,
             })}
           />
+          <Tab.Screen name="RecipeList" component={RecipesList} />
+          <Tab.Screen name="SearchRecipe" component={SearchRecipe} />
           <Tab.Screen
-            name="RecipeList"
-            component={RecipesList}
+            name="Dashboard"
+            component={Dashboard}
             options={{
               tabBarIcon: () => (
                 <View>
