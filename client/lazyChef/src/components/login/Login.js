@@ -8,7 +8,7 @@ import generalStyles from '../../../generalStyles';
 
 const Login = ({navigation, dispatch, userAcces}) => {
   useEffect(() => {
-    userAcces.token && navigation.navigate('RecipeList');
+    userAcces.token && navigation.navigate('Dashboard');
   }, [userAcces, navigation]);
 
   let [email, showEmail] = useState('');
