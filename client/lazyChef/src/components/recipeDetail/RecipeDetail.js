@@ -150,8 +150,7 @@ const RecipeDetail = ({
 
           <View style={styles.infoContainer}>
             <Text style={styles.titleText}>{recipe.title}</Text>
-            <View
-              style={[generalStyles.rowArround, {backgroundColor: 'white'}]}>
+            <View style={[generalStyles.rowArround, generalStyles.background]}>
               <View style={styles.recipeInfo}>
                 <Text style={styles.iconsDetail}>Ingredientes</Text>
                 <Image
