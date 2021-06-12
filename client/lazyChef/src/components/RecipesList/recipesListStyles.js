@@ -57,6 +57,23 @@ const styles = StyleSheet.create({
     height: 30,
     opacity: 0.7,
   },
+  ingList: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  ingredientsList: {
+    marginHorizontal: 10,
+    backgroundColor: 'white',
+    fontSize: 30,
+  },
+  wordsTitle: {
+    fontSize: 30,
+    color: '#FF914D',
+    backgroundColor: 'white',
+  },
+  optionslist: {
+    flexWrap: 'wrap',
+  },
 });
 
 export default styles;
