@@ -43,9 +43,7 @@ const RecipesList = ({recipes, dispatch}) => {
           <View>
             <Image
               style={styles.imageIcons}
-              source={{
-                uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
-              }}
+              source={require('../../img/Ingredientes.jpg')}
             />
             <Text style={styles.descriptionText}>
               {item.recipeIngredient.length}
@@ -54,18 +52,14 @@ const RecipesList = ({recipes, dispatch}) => {
           <View>
             <Image
               style={styles.imageIcons}
-              source={{
-                uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
-              }}
+              source={require('../../img/herramientas-y-utensilios.png')}
             />
             <Text style={styles.descriptionText}>{item.difficulty}</Text>
           </View>
           <View>
             <Image
               style={styles.imageIcons}
-              source={{
-                uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
-              }}
+              source={require('../../img/duration.png')}
             />
             <Text style={styles.descriptionText}>{item.totalTime}</Text>
           </View>
