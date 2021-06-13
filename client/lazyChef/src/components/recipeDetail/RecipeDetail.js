@@ -65,8 +65,12 @@ const RecipeDetail = ({
     );
   }
 
-  const toggleFunction = () => {
-    setIsVisible(!isVisible);
+  const showSteps = () => {
+    setIsVisible(false);
+  };
+
+  const showIngredients = () => {
+    setIsVisible(true);
   };
 
   return (
@@ -155,9 +159,7 @@ const RecipeDetail = ({
                 <Text style={styles.iconsDetail}>Ingredientes</Text>
                 <Image
                   style={styles.imageIcons}
-                  source={{
-                    uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
-                  }}
+                  source={require('../../img/Ingredientes.jpg')}
                 />
                 <Text style={styles.iconsDetail}>
                   {recipe.recipeIngredient.length}
@@ -167,9 +169,7 @@ const RecipeDetail = ({
                 <Text style={styles.iconsDetail}>Dificultad</Text>
                 <Image
                   style={styles.imageIcons}
-                  source={{
-                    uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
-                  }}
+                  source={require('../../img/herramientas-y-utensilios.png')}
                 />
                 <Text style={styles.iconsDetail}>{recipe.difficulty}</Text>
               </View>
@@ -177,18 +177,20 @@ const RecipeDetail = ({
                 <Text style={styles.iconsDetail}>Tiempo total</Text>
                 <Image
                   style={styles.imageIcons}
-                  source={{
-                    uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
-                  }}
+                  source={require('../../img/duration.png')}
                 />
                 <Text style={styles.iconsDetail}>{recipe.totalTime}</Text>
               </View>
             </View>
             <View style={[generalStyles.rowArround, styles.recipeDetails]}>
-              <TouchableOpacity style={styles.informationTaps}>
+              <TouchableOpacity
+                style={styles.informationTaps}
+                onPress={() => showIngredients()}>
                 <Text style={styles.informationTitle}>Ingredientes</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.informationTaps}>
+              <TouchableOpacity
+                style={styles.informationTaps}
+                onPress={() => showSteps()}>
                 <Text style={styles.informationTitle}>Pasos</Text>
               </TouchableOpacity>
             </View>
