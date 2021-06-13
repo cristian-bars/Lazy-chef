@@ -14,11 +14,6 @@ const styles = StyleSheet.create({
     paddingTop: 100,
     backgroundColor: '#D3E0FF',
   },
-  recipeDetail: {
-    backgroundColor: 'white',
-    margin: 10,
-    borderRadius: 5,
-  },
   titleText: {
     fontSize: 30,
     fontWeight: 'bold',
@@ -33,6 +28,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#616161',
     textAlign: 'center',
+    maxWidth: 250,
   },
   userImage: {
     width: 100,
@@ -50,6 +46,21 @@ const styles = StyleSheet.create({
   },
   register: {
     color: 'white',
+  },
+  trashRecipe: {
+    alignItems: 'center',
+    backgroundColor: 'white',
+    margin: 5,
+    paddingVertical: 10,
+    paddingLeft: 10,
+    justifyContent: 'space-between',
+    borderRadius: 5,
+    width: 350,
+  },
+  trashImage: {
+    width: 20,
+    height: 20,
+    marginRight: 20,
   },
 });
 
