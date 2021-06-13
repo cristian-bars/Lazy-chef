@@ -17,8 +17,10 @@ const UserDetail = ({userAcces, navigation: {goBack}, navigation, recipes}) => {
 
   const MyCreatedRecipes = ({item}) => {
     return (
-      <TouchableOpacity style={styles.recipeDetail}>
-        <Text style={styles.titleText}>{item.title}</Text>
+      <TouchableOpacity
+        style={styles.recipeDetail}
+        onPress={() => navigation.navigate('Detail', {recipeId: item._id})}>
+        <Text style={styles.titleRecipe}>{item.title}</Text>
       </TouchableOpacity>
     );
   };
@@ -35,11 +37,19 @@ const UserDetail = ({userAcces, navigation: {goBack}, navigation, recipes}) => {
       </TouchableOpacity>
       {userAcces.user ? (
         <View style={styles.userContainer}>
-          <Text style={styles.titleText}>Hola {userAcces.user.name}</Text>
-          <Image
-            style={styles.userImage}
-            source={{uri: userAcces.user.image}}
-          />
+          <Text style={styles.titleText}>¡Hola {userAcces.user.name}!</Text>
+          {userAcces.user.image ? (
+            <Image
+              style={styles.userImage}
+              source={{uri: userAcces.user.image}}
+            />
+          ) : (
+            <Image
+              style={styles.userImage}
+              source={require('../../img/user.png')}
+            />
+          )}
+          <Text style={styles.titleTextRecipes}>Mis recetas</Text>
           <FlatList
             style={styles.list}
             data={myRecipesList}
