@@ -8,7 +8,7 @@ import styles from './newRecipeStyles';
 
 const NewRecipe = ({userAcces, dispatch, navigation, navigation: {goBack}}) => {
   useEffect(() => {
-    userAcces.token && navigation.navigate('RecipeList');
+    userAcces.token && navigation.navigate('User');
   }, [userAcces, navigation]);
 
   let [title, showTitle] = useState('');
