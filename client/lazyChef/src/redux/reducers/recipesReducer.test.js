@@ -20,7 +20,7 @@ const loadAction = {
 
 const deleteAction = {
   type: 'DELETE_RECIPE',
-  recipeId: {_id: 1},
+  recipeId: 1,
 };
 
 const addAction = {
