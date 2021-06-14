@@ -60,16 +60,20 @@ const styles = StyleSheet.create({
   ingList: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+    paddingVertical: 5,
   },
   ingredientsList: {
     marginHorizontal: 10,
     backgroundColor: 'white',
-    fontSize: 30,
+    fontSize: 25,
+    borderRadius: 5,
+    alignContent: 'flex-end',
   },
   wordsTitle: {
-    fontSize: 30,
+    fontSize: 25,
     color: '#FF914D',
     backgroundColor: 'white',
+    borderRadius: 5,
   },
   optionslist: {
     flexWrap: 'wrap',
