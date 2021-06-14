@@ -1,10 +1,8 @@
 import actionTypes from './actionTypes';
 import axios from 'axios';
+import {env} from '../../../.env.js';
 
-//const url = 'http://localhost/users';
-const url = 'http://192.168.0.29:2022';
-//const url = 'http://192.168.1.130:2022';
-//const url = process.env.REACT_APP_PORT;
+const url = env.REACT_APP_PORT;
 
 export function addUsers(user) {
   return async dispatch => {

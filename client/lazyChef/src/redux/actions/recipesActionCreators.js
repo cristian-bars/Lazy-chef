@@ -1,14 +1,13 @@
 import actionTypes from './actionTypes';
 import axios from 'axios';
+import {env} from '../../../.env.js';
 
-//const url = 'http://localhost/recipes';
-const url = 'http://192.168.0.29:2022/recipes';
-//const url = 'http://192.168.1.130:2022/recipes';
+const url = env.REACT_APP_PORT;
 
 export function loadRecipes() {
   return async dispatch => {
     try {
-      const {data} = await axios(url);
+      const {data} = await axios(`${url}/recipes`);
       dispatch({
         type: actionTypes.LOAD_RECIPES,
         recipes: data,
@@ -24,7 +23,7 @@ export function loadRecipes() {
 export function addRecipe(recipe) {
   return async dispatch => {
     try {
-      const {data} = await axios.post(url, recipe);
+      const {data} = await axios.post(`${url}/recipes`, recipe);
       dispatch({
         type: actionTypes.ADD_RECIPE,
         recipe: data,
@@ -40,7 +39,7 @@ export function addRecipe(recipe) {
 export function deleteRecipe(recipeId) {
   return async dispatch => {
     try {
-      await axios.delete(`${url}/${recipeId.id}`);
+      await axios.delete(`${url}/recipes/${recipeId.id}`);
       dispatch({
         type: actionTypes.DELETE_RECIPE,
         recipeId,
@@ -56,7 +55,7 @@ export function deleteRecipe(recipeId) {
 export function updateRecipe(recipe) {
   return async dispatch => {
     try {
-      const {data} = await axios.post(`${url}/${recipe._id}`, recipe);
+      const {data} = await axios.post(`${url}/recipes/${recipe._id}`, recipe);
       dispatch({
         type: actionTypes.UPDATE_RECIPE,
         recipe: data,
@@ -72,7 +71,7 @@ export function updateRecipe(recipe) {
 export function getRecipeById(recipeId) {
   return async dispatch => {
     try {
-      const {data} = await axios(`${url}/${recipeId}`);
+      const {data} = await axios(`${url}/recipes/${recipeId}`);
       dispatch({
         type: actionTypes.LOAD_RECIPE,
         recipe: data,
