@@ -10,8 +10,7 @@ import styles from './recipesListStyles';
 const RecipesList = ({recipes, dispatch, route}) => {
   const navigation = useNavigation();
   const {ingredient} = route.params;
-  console.log('ingredients??');
-  console.log(ingredient);
+
   useEffect(() => {
     if (!recipes.length) {
       dispatch(loadRecipes());
