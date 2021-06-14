@@ -39,7 +39,7 @@ export function addRecipe(recipe) {
 export function deleteRecipe(recipeId) {
   return async dispatch => {
     try {
-      await axios.delete(`${url}/recipes/${recipeId.id}`);
+      await axios.delete(`${url}/recipes/${recipeId}`);
       dispatch({
         type: actionTypes.DELETE_RECIPE,
         recipeId,
