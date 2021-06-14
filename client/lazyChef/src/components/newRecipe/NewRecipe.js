@@ -4,9 +4,10 @@ import {connect} from 'react-redux';
 import {View, TouchableOpacity, Text, TextInput, Image} from 'react-native';
 import generalStyles from '../../../generalStyles';
 import {addRecipe} from '../../redux/actions/recipesActionCreators';
+import {updateUser} from '../../redux/actions/usersActionCreators';
 import styles from './newRecipeStyles';
 
-const NewRecipe = ({userAcces, dispatch, navigation, navigation: {goBack}}) => {
+const NewRecipe = ({userAcces, dispatch, navigation, recipes}) => {
   useEffect(() => {
     userAcces.token && navigation.navigate('User');
   }, [userAcces, navigation]);
@@ -18,6 +19,20 @@ const NewRecipe = ({userAcces, dispatch, navigation, navigation: {goBack}}) => {
 
   const addNewRecipe = () => {
     dispatch(addRecipe({title, description, author, datePublished}));
+  };
+
+  const goBack = () => {
+    const userRecipesIds = userAcces.user.recipesCreated;
+    userRecipesIds.push(recipes[recipes.length - 1]._id);
+    console.log(userAcces.user);
+    dispatch(
+      updateUser({
+        id: userAcces.user._id,
+        recipesCreated: userAcces.user.recipesCreated,
+        bearerToken: userAcces.token,
+      }),
+    );
+    navigation.navigate('User');
   };
 
   return (
@@ -49,9 +64,10 @@ const NewRecipe = ({userAcces, dispatch, navigation, navigation: {goBack}}) => {
   );
 };
 
-function mapStateToProps({userAcces}) {
+function mapStateToProps({userAcces, recipes}) {
   return {
     userAcces,
+    recipes,
   };
 }
 
