@@ -43,9 +43,7 @@ const RecipesList = ({recipes, dispatch}) => {
           <View>
             <Image
               style={styles.imageIcons}
-              source={{
-                uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
-              }}
+              source={require('../../img/Ingredientes.jpg')}
             />
             <Text style={styles.descriptionText}>
               {item.recipeIngredient.length}
@@ -54,18 +52,14 @@ const RecipesList = ({recipes, dispatch}) => {
           <View>
             <Image
               style={styles.imageIcons}
-              source={{
-                uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
-              }}
+              source={require('../../img/herramientas-y-utensilios.png')}
             />
             <Text style={styles.descriptionText}>{item.difficulty}</Text>
           </View>
           <View>
             <Image
               style={styles.imageIcons}
-              source={{
-                uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
-              }}
+              source={require('../../img/duration.png')}
             />
             <Text style={styles.descriptionText}>{item.totalTime}</Text>
           </View>
@@ -80,13 +74,13 @@ const RecipesList = ({recipes, dispatch}) => {
     return (
       <View style={styles.wordsList}>
         <Text style={styles.wordsTitle}>Ingredientes</Text>
-        <View style={styles.list}>
+        <View style={styles.ingredientsList}>
           <TouchableOpacity
             style={styles.searchWord}
             onPress={() =>
               navigation.navigate('SearchRecipe', {ingredient: 'Huevo'})
             }>
-            <Text>Huevo</Text>
+            <Text style={styles.wordStyle}>Huevo</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.searchWord}
@@ -100,14 +94,14 @@ const RecipesList = ({recipes, dispatch}) => {
             onPress={() =>
               navigation.navigate('SearchRecipe', {ingredient: 'Judías'})
             }>
-            <Text>Judías</Text>
+            <Text style={styles.wordStyle}>Judías</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.searchWord}
             onPress={() =>
               navigation.navigate('SearchRecipe', {ingredient: 'Arroz'})
             }>
-            <Text>Arroz</Text>
+            <Text style={styles.wordStyle}>Arroz</Text>
           </TouchableOpacity>
         </View>
       </View>

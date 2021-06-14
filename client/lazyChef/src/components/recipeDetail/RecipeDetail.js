@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useState} from 'react';
 import {
   View,
@@ -30,17 +29,14 @@ const RecipeDetail = ({
   }, [recipeId, dispatch]);
 
   const IngredientsList = ({item}) => {
-    return <Text style={styles.recipeIngredient}>- {item}</Text>;
+    return <Text style={styles.recipeIngredient}>{item}</Text>;
   };
 
   const StepsList = ({item}) => {
-    return <Text style={styles.recipeIngredient}>5 {item.name}</Text>;
+    return <Text style={styles.recipeIngredient}>{item.text}</Text>;
   };
 
   function addFav() {
-    console.log('afegeixo');
-    console.log(userAcces.user.favouriteRecipes);
-    console.log(recipe._id);
     dispatch(
       updateUser({
         id: userAcces.user._id,
@@ -48,14 +44,11 @@ const RecipeDetail = ({
         bearerToken: userAcces.token,
       }),
     );
-    console.log(userAcces.user.favouriteRecipes);
   }
 
   function removeFav() {
-    console.log('elimino');
     let arr = [...userAcces.user.favouriteRecipes];
     arr.splice(arr.indexOf(recipe._id), 1);
-    console.log(arr);
     dispatch(
       updateUser({
         id: userAcces.user._id,
@@ -65,8 +58,12 @@ const RecipeDetail = ({
     );
   }
 
-  const toggleFunction = () => {
-    setIsVisible(!isVisible);
+  const showSteps = () => {
+    setIsVisible(false);
+  };
+
+  const showIngredients = () => {
+    setIsVisible(true);
   };
 
   return (
@@ -155,9 +152,7 @@ const RecipeDetail = ({
                 <Text style={styles.iconsDetail}>Ingredientes</Text>
                 <Image
                   style={styles.imageIcons}
-                  source={{
-                    uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
-                  }}
+                  source={require('../../img/Ingredientes.jpg')}
                 />
                 <Text style={styles.iconsDetail}>
                   {recipe.recipeIngredient.length}
@@ -167,9 +162,7 @@ const RecipeDetail = ({
                 <Text style={styles.iconsDetail}>Dificultad</Text>
                 <Image
                   style={styles.imageIcons}
-                  source={{
-                    uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
-                  }}
+                  source={require('../../img/herramientas-y-utensilios.png')}
                 />
                 <Text style={styles.iconsDetail}>{recipe.difficulty}</Text>
               </View>
@@ -177,19 +170,31 @@ const RecipeDetail = ({
                 <Text style={styles.iconsDetail}>Tiempo total</Text>
                 <Image
                   style={styles.imageIcons}
-                  source={{
-                    uri: 'https://i.ibb.co/PwFdwdH/Vector-artistic-pen-and-ink-drawing-illustration-of-empty-plate-knife-and-fork.jpg',
-                  }}
+                  source={require('../../img/duration.png')}
                 />
                 <Text style={styles.iconsDetail}>{recipe.totalTime}</Text>
               </View>
             </View>
             <View style={[generalStyles.rowArround, styles.recipeDetails]}>
-              <TouchableOpacity style={styles.informationTaps}>
-                <Text style={styles.informationTitle}>Ingredientes</Text>
+              <TouchableOpacity
+                style={styles.informationTaps}
+                onPress={() => showIngredients()}>
+                {isVisible ? (
+                  <Text style={styles.informationTitleVisible}>
+                    Ingredientes
+                  </Text>
+                ) : (
+                  <Text style={styles.informationTitle}>Ingredientes</Text>
+                )}
               </TouchableOpacity>
-              <TouchableOpacity style={styles.informationTaps}>
-                <Text style={styles.informationTitle}>Pasos</Text>
+              <TouchableOpacity
+                style={styles.informationTaps}
+                onPress={() => showSteps()}>
+                {isVisible ? (
+                  <Text style={styles.informationTitle}>Pasos</Text>
+                ) : (
+                  <Text style={styles.informationTitleVisible}>Pasos</Text>
+                )}
               </TouchableOpacity>
             </View>
             {isVisible ? (

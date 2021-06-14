@@ -3,8 +3,15 @@ import {View, Text, TouchableOpacity, Image, FlatList} from 'react-native';
 import {connect} from 'react-redux';
 import styles from './userDetailStyles';
 import generalStyles from '../../../generalStyles';
+import {deleteRecipe} from '../../redux/actions/recipesActionCreators';
 
-const UserDetail = ({userAcces, navigation: {goBack}, navigation, recipes}) => {
+const UserDetail = ({
+  userAcces,
+  navigation: {goBack},
+  navigation,
+  recipes,
+  dispatch,
+}) => {
   const recipesList = recipes;
   const myRecipesIds = userAcces.user.recipesCreated;
   let myRecipesList = [];
@@ -15,11 +22,25 @@ const UserDetail = ({userAcces, navigation: {goBack}, navigation, recipes}) => {
     });
   }
 
+  const deleteMyRecipe = recipe => {
+    dispatch(deleteRecipe(recipe));
+  };
+
   const MyCreatedRecipes = ({item}) => {
     return (
-      <TouchableOpacity style={styles.recipeDetail}>
-        <Text style={styles.titleText}>{item.title}</Text>
-      </TouchableOpacity>
+      <View style={[generalStyles.rowArround, styles.trashRecipe]}>
+        <TouchableOpacity
+          style={styles.recipeDetail}
+          onPress={() => navigation.navigate('Detail', {recipeId: item._id})}>
+          <Text style={styles.titleRecipe}>{item.title}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => deleteMyRecipe(item._id)}>
+          <Image
+            style={styles.trashImage}
+            source={require('../../img/trash.png')}
+          />
+        </TouchableOpacity>
+      </View>
     );
   };
 
@@ -35,11 +56,19 @@ const UserDetail = ({userAcces, navigation: {goBack}, navigation, recipes}) => {
       </TouchableOpacity>
       {userAcces.user ? (
         <View style={styles.userContainer}>
-          <Text style={styles.titleText}>Hola {userAcces.user.name}</Text>
-          <Image
-            style={styles.userImage}
-            source={{uri: userAcces.user.image}}
-          />
+          <Text style={styles.titleText}>¡Hola {userAcces.user.name}!</Text>
+          {userAcces.user.image ? (
+            <Image
+              style={styles.userImage}
+              source={{uri: userAcces.user.image}}
+            />
+          ) : (
+            <Image
+              style={styles.userImage}
+              source={require('../../img/user.png')}
+            />
+          )}
+          <Text style={styles.titleTextRecipes}>Mis recetas</Text>
           <FlatList
             style={styles.list}
             data={myRecipesList}

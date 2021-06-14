@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
   recipeInfo: {
     flexDirection: 'column',
     paddingVertical: 5,
+    alignItems: 'center',
   },
   infoContainer: {
     padding: 10,
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
     left: -10,
   },
   recipeDetails: {
-    backgroundColor: 'white',
+    backgroundColor: 'lightgrey',
     marginTop: 10,
   },
   information: {
@@ -51,14 +52,25 @@ const styles = StyleSheet.create({
   informationTitle: {
     fontSize: 20,
     paddingVertical: 5,
+    fontWeight: 'bold',
+    color: '#616161',
+  },
+  informationTitleVisible: {
+    fontSize: 20,
+    paddingVertical: 5,
+    fontWeight: 'bold',
+    color: '#FF914D',
   },
   recipeIngredient: {
     paddingHorizontal: 20,
+    paddingVertical: 10,
     fontSize: 20,
   },
   informationTaps: {
     width: 120,
     height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
