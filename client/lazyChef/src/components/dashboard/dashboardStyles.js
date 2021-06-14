@@ -69,11 +69,19 @@ const styles = StyleSheet.create({
     color: '#FF914D',
     backgroundColor: 'white',
   },
-  list: {
-    // flexDirection: 'row',
+  ingredientsList: {
+    flexDirection: 'row',
   },
   searchWord: {
     marginVertical: 10,
+    marginHorizontal: 10,
+    borderWidth: 1,
+    borderRadius: 5,
+    padding: 10,
+  },
+  listWords: {
+    color: 'white',
+    height: 50,
   },
 });
 

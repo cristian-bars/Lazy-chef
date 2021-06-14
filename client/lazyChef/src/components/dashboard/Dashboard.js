@@ -74,13 +74,13 @@ const RecipesList = ({recipes, dispatch}) => {
     return (
       <View style={styles.wordsList}>
         <Text style={styles.wordsTitle}>Ingredientes</Text>
-        <View style={styles.list}>
+        <View style={styles.ingredientsList}>
           <TouchableOpacity
             style={styles.searchWord}
             onPress={() =>
               navigation.navigate('SearchRecipe', {ingredient: 'Huevo'})
             }>
-            <Text>Huevo</Text>
+            <Text style={styles.wordStyle}>Huevo</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.searchWord}
@@ -94,14 +94,14 @@ const RecipesList = ({recipes, dispatch}) => {
             onPress={() =>
               navigation.navigate('SearchRecipe', {ingredient: 'Judías'})
             }>
-            <Text>Judías</Text>
+            <Text style={styles.wordStyle}>Judías</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.searchWord}
             onPress={() =>
               navigation.navigate('SearchRecipe', {ingredient: 'Arroz'})
             }>
-            <Text>Arroz</Text>
+            <Text style={styles.wordStyle}>Arroz</Text>
           </TouchableOpacity>
         </View>
       </View>
