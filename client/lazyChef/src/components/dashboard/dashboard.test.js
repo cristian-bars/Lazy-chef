@@ -1,6 +1,6 @@
 import 'react-native';
 import React from 'react';
-import Dashboard from './Dashboard';
+import Dashboard from './index';
 import thunk from 'redux-thunk';
 import Store from 'redux-mock-store';
 import * as actions from '../../redux/actions/recipesActionCreators';

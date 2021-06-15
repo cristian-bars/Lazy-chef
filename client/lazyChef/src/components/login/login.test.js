@@ -1,6 +1,6 @@
 import 'react-native';
 import React from 'react';
-import Login from './Login';
+import Login from './index';
 import thunk from 'redux-thunk';
 import Store from 'redux-mock-store';
 import * as actions from '../../redux/actions/usersActionCreators';

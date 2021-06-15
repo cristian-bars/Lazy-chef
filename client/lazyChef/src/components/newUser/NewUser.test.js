@@ -3,7 +3,7 @@ import {render, fireEvent} from '@testing-library/react-native';
 import Store from 'redux-mock-store';
 import * as actions from '../../redux/actions/usersActionCreators';
 import {Provider} from 'react-redux';
-import Register from './NewUser';
+import Register from './index';
 
 describe('Given a Register component', () => {
   const mockStore = Store();
