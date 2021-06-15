@@ -91,8 +91,8 @@ const RecipeDetail = ({
                   ]}
                   onPress={() => {
                     userAcces.user.favouriteRecipes.includes(recipe._id)
-                      ? removeFav(recipe._id)
-                      : addFav(recipe._id);
+                      ? removeFav()
+                      : addFav();
                   }}>
                   {userAcces.user.favouriteRecipes.includes(recipe._id) ? (
                     <Image
