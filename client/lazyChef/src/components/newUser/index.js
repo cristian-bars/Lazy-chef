@@ -37,18 +37,21 @@ const Register = ({navigation, dispatch, user, navigation: {goBack}}) => {
       <Text style={generalStyles.title}>Nuevo usuario</Text>
       <TextInput
         style={generalStyles.formLogin}
+        value={name}
         testID="nameInput"
         placeholder="Nombre"
         onChangeText={textName => showName(textName)}
       />
       <TextInput
         style={generalStyles.formLogin}
+        value={email}
         testID="emailInput"
         placeholder="Email"
         onChangeText={textEmail => showEmail(textEmail)}
       />
       <TextInput
         style={generalStyles.formLogin}
+        value={password}
         testID="passwordInput"
         placeholder="Password"
         onChangeText={textPassword => showPassword(textPassword)}

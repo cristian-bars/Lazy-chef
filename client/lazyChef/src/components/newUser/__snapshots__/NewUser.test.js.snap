@@ -102,6 +102,7 @@ exports[`Given a Register component When is render And user.isLogged is false Th
     }
     testID="nameInput"
     underlineColorAndroid="transparent"
+    value=""
   />
   <TextInput
     allowFontScaling={true}
@@ -123,6 +124,7 @@ exports[`Given a Register component When is render And user.isLogged is false Th
     }
     testID="emailInput"
     underlineColorAndroid="transparent"
+    value=""
   />
   <TextInput
     allowFontScaling={true}
@@ -144,6 +146,7 @@ exports[`Given a Register component When is render And user.isLogged is false Th
     }
     testID="passwordInput"
     underlineColorAndroid="transparent"
+    value=""
   />
   <View
     accessible={true}

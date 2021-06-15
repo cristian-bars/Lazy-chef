@@ -10,8 +10,6 @@ describe('Given a Register component', () => {
   let myStore;
   let navigation;
 
-  const goBack = jest.fn();
-
   beforeEach(() => {
     jest.spyOn(actions, 'addUsers').mockReturnValueOnce({type: ''});
     myStore = mockStore({
@@ -19,6 +17,7 @@ describe('Given a Register component', () => {
     });
     navigation = {
       navigate: jest.fn(),
+      goBack: jest.fn(),
     };
   });
   describe('When is render', () => {
@@ -68,62 +67,62 @@ describe('Given a Register component', () => {
     });
   });
 
-  // describe('When back button is pressed', () => {
-  //   test('Then navigation.navigate is invoked', () => {
-  //     const {getByTestId} = render(
-  //       <Provider store={myStore}>
-  //         <Register navigation={goBack} />
-  //       </Provider>,
-  //     );
-  //     const goToBack = getByTestId('goBack');
-  //     fireEvent.press(goToBack);
+  describe('When back button is pressed', () => {
+    test('Then navigation.navigate is invoked', () => {
+      const {getByTestId} = render(
+        <Provider store={myStore}>
+          <Register navigation={navigation} />
+        </Provider>,
+      );
+      const goToBack = getByTestId('goBack');
+      fireEvent.press(goToBack);
 
-  //     expect(navigation.goBack).toHaveBeenCalled();
-  //   });
-  // });
+      expect(navigation.goBack).toHaveBeenCalled();
+    });
+  });
 
-  // describe('When nameInput is typing with Cristian', () => {
-  //   test('Then nameInput value is Cristian', () => {
-  //     const {getByTestId} = render(
-  //       <Provider store={myStore}>
-  //         <Register />
-  //       </Provider>,
-  //     );
-  //     const nameInput = getByTestId('nameInput');
-  //     const name = 'Cristian';
-  //     fireEvent.changeText(nameInput, name);
+  describe('When nameInput is typing with Cristian', () => {
+    test('Then nameInput value is Cristian', () => {
+      const {getByTestId} = render(
+        <Provider store={myStore}>
+          <Register navigation={navigation} />
+        </Provider>,
+      );
+      const nameInput = getByTestId('nameInput');
+      const name = 'Cristian';
+      fireEvent.changeText(nameInput, name);
 
-  //     expect(nameInput.props.value).toBe(name);
-  //   });
-  // });
+      expect(nameInput.props.value).toBe(name);
+    });
+  });
 
-  // describe('When emailInput is typing with cristian@gmail.com', () => {
-  //   test('Then emailInput value is cristian@gmail.com', () => {
-  //     const {getByTestId} = render(
-  //       <Provider store={myStore}>
-  //         <Register />
-  //       </Provider>,
-  //     );
-  //     const emailInput = getByTestId('emailInput');
-  //     const email = 'cristian@gmail.com';
-  //     fireEvent.changeText(emailInput, email);
+  describe('When emailInput is typing with cristian@gmail.com', () => {
+    test('Then emailInput value is cristian@gmail.com', () => {
+      const {getByTestId} = render(
+        <Provider store={myStore}>
+          <Register navigation={navigation} />
+        </Provider>,
+      );
+      const emailInput = getByTestId('emailInput');
+      const email = 'cristian@gmail.com';
+      fireEvent.changeText(emailInput, email);
 
-  //     expect(emailInput.props.value).toBe(email);
-  //   });
-  // });
+      expect(emailInput.props.value).toBe(email);
+    });
+  });
 
-  // describe('When passwordInput is typing with 1234ABC', () => {
-  //   test('Then passwordInput value is 1234ABC', () => {
-  //     const {getByTestId} = render(
-  //       <Provider store={myStore}>
-  //         <Register />
-  //       </Provider>,
-  //     );
-  //     const passwordInput = getByTestId('passwordInput');
-  //     const password = '1234ABC';
-  //     fireEvent.changeText(passwordInput, password);
+  describe('When passwordInput is typing with 1234ABC', () => {
+    test('Then passwordInput value is 1234ABC', () => {
+      const {getByTestId} = render(
+        <Provider store={myStore}>
+          <Register navigation={navigation} />
+        </Provider>,
+      );
+      const passwordInput = getByTestId('passwordInput');
+      const password = '1234ABC';
+      fireEvent.changeText(passwordInput, password);
 
-  //     expect(passwordInput.props.value).toBe(password);
-  //   });
-  // });
+      expect(passwordInput.props.value).toBe(password);
+    });
+  });
 });
