@@ -1,0 +1,184 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a Register component When is render And user.isLogged is false Then is mathced to snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#044AFD",
+      "flex": 1,
+      "justifyContent": "center",
+      "padding": 24,
+      "paddingTop": 50,
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderRadius": 25,
+        "height": 10,
+        "left": 20,
+        "opacity": 1,
+        "padding": 20,
+        "position": "absolute",
+        "top": 20,
+        "width": 10,
+        "zIndex": 1,
+      }
+    }
+    testID="goBack"
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/img/back.png",
+        }
+      }
+      style={
+        Object {
+          "height": 20,
+          "left": -12,
+          "position": "relative",
+          "top": -10,
+          "width": 20,
+        }
+      }
+    />
+  </View>
+  <Image
+    source={
+      Object {
+        "uri": "https://i.ibb.co/MVc000Y/Logo-transparent-Patxi.png",
+      }
+    }
+    style={
+      Object {
+        "alignItems": "flex-start",
+        "height": 250,
+        "width": 250,
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "color": "white",
+        "fontSize": 25,
+        "fontWeight": "bold",
+        "paddingVertical": 20,
+      }
+    }
+  >
+    Nuevo usuario
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    onChangeText={[Function]}
+    placeholder="Nombre"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 25,
+        "fontSize": 20,
+        "height": 50,
+        "justifyContent": "center",
+        "marginVertical": 5,
+        "paddingLeft": 20,
+        "width": 300,
+      }
+    }
+    testID="nameInput"
+    underlineColorAndroid="transparent"
+  />
+  <TextInput
+    allowFontScaling={true}
+    onChangeText={[Function]}
+    placeholder="Email"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 25,
+        "fontSize": 20,
+        "height": 50,
+        "justifyContent": "center",
+        "marginVertical": 5,
+        "paddingLeft": 20,
+        "width": 300,
+      }
+    }
+    testID="emailInput"
+    underlineColorAndroid="transparent"
+  />
+  <TextInput
+    allowFontScaling={true}
+    onChangeText={[Function]}
+    placeholder="Password"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 25,
+        "fontSize": 20,
+        "height": 50,
+        "justifyContent": "center",
+        "marginVertical": 5,
+        "paddingLeft": 20,
+        "width": 300,
+      }
+    }
+    testID="passwordInput"
+    underlineColorAndroid="transparent"
+  />
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 25,
+        "height": 50,
+        "justifyContent": "center",
+        "marginTop": 30,
+        "opacity": 1,
+        "width": 300,
+      }
+    }
+    testID="register"
+  >
+    <Text
+      style={
+        Object {
+          "fontFamily": "Cochin",
+          "fontSize": 25,
+        }
+      }
+    >
+      Registrarse
+    </Text>
+  </View>
+</View>
+`;
