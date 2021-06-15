@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, Image, FlatList} from 'react-native';
 import {connect} from 'react-redux';
-import styles from './userDetailStyles';
+import styles from './styles';
 import generalStyles from '../../../generalStyles';
 import {deleteRecipe} from '../../redux/actions/recipesActionCreators';
 import {updateUser} from '../../redux/actions/usersActionCreators';

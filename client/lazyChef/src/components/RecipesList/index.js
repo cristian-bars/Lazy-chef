@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {PropTypes} from 'prop-types';
 import {useNavigation} from '@react-navigation/native';
 import {loadRecipes} from '../../redux/actions/recipesActionCreators';
-import styles from './recipesListStyles';
+import styles from './styles';
 
 const RecipesList = ({recipes, dispatch, route}) => {
   const navigation = useNavigation();

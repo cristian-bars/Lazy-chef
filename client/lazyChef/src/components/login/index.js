@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import {View, Image, TouchableOpacity, Text, TextInput} from 'react-native';
 import {getUserById} from '../../redux/actions/usersActionCreators';
-import styles from './loginStyles';
+import styles from './styles';
 import generalStyles from '../../../generalStyles';
 
 const Login = ({navigation, dispatch, userAcces}) => {

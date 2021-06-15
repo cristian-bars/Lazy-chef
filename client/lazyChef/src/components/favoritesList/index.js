@@ -3,7 +3,7 @@ import {View, Text, FlatList, Image, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
 import {PropTypes} from 'prop-types';
 import {useNavigation} from '@react-navigation/native';
-import styles from './favoritesListStyles';
+import styles from './styles';
 
 const RecipesList = ({recipes, dispatch, userAccess}) => {
   const recipesList = recipes;

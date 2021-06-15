@@ -12,7 +12,7 @@ import {connect} from 'react-redux';
 import {PropTypes} from 'prop-types';
 import {useNavigation} from '@react-navigation/native';
 import generalStyles from '../../../generalStyles';
-import styles from './searchRecipeStyles';
+import styles from './styles';
 
 const SearchRecipe = ({recipes, dispatch, route}) => {
   const navigation = useNavigation();

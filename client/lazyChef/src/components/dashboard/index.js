@@ -11,7 +11,7 @@ import {
 import {connect} from 'react-redux';
 import {PropTypes} from 'prop-types';
 import {loadRecipes} from '../../redux/actions/recipesActionCreators';
-import styles from './dashboardStyles';
+import styles from './styles';
 
 const RecipesList = ({recipes, dispatch, navigation}) => {
   useEffect(() => {

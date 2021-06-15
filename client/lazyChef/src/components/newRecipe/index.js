@@ -5,7 +5,7 @@ import {View, TouchableOpacity, Text, TextInput, Image} from 'react-native';
 import generalStyles from '../../../generalStyles';
 import {addRecipe} from '../../redux/actions/recipesActionCreators';
 import {updateUser} from '../../redux/actions/usersActionCreators';
-import styles from './newRecipeStyles';
+import styles from './styles';
 
 const NewRecipe = ({userAcces, dispatch, navigation, recipes}) => {
   useEffect(() => {
