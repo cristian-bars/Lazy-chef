@@ -12,6 +12,7 @@ import {connect} from 'react-redux';
 import {PropTypes} from 'prop-types';
 import {loadRecipes} from '../../redux/actions/recipesActionCreators';
 import styles from './styles';
+import generalStyles from '../../../generalStyles';
 
 const RecipesList = ({recipes, dispatch, navigation}) => {
   useEffect(() => {
@@ -70,7 +71,7 @@ const RecipesList = ({recipes, dispatch, navigation}) => {
 
   const Words = () => {
     return (
-      <View style={styles.wordsList}>
+      <View style={generalStyles.wordsList}>
         <Text style={styles.wordsTitle}>Ingredientes</Text>
         <View style={styles.ingredientsList}>
           <TouchableOpacity
@@ -108,13 +109,13 @@ const RecipesList = ({recipes, dispatch, navigation}) => {
   return (
     <View style={styles.container}>
       <View>
-        <View style={styles.input}>
+        <View style={generalStyles.input}>
           <Image
-            style={styles.searchImage}
+            style={generalStyles.searchImage}
             source={require('../../img/search.png')}
           />
           <TextInput
-            style={styles.inputText}
+            style={generalStyles.inputText}
             placeholder="Buscar"
             autoCapitalize="none"
           />

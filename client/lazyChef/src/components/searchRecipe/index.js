@@ -37,7 +37,7 @@ const SearchRecipe = ({recipes, dispatch, route}) => {
   const Words = () => {
     return (
       <View>
-        <View style={styles.wordsList}>
+        <View style={generalStyles.wordsList}>
           <Text style={styles.wordsTitle}>Mi selección</Text>
           {arrayToMap.length ? (
             <FlatList
@@ -57,15 +57,15 @@ const SearchRecipe = ({recipes, dispatch, route}) => {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <View style={styles.input}>
+        <View style={generalStyles.input}>
           <TouchableOpacity onPress={addIngredient}>
             <Image
-              style={styles.searchImage}
+              style={generalStyles.searchImage}
               source={require('../../img/search.png')}
             />
           </TouchableOpacity>
           <TextInput
-            style={styles.inputText}
+            style={generalStyles.inputText}
             placeholder="Buscar"
             autoCapitalize="none"
             onChangeText={ing => searchIngredient(ing)}
