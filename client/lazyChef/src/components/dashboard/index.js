@@ -25,6 +25,7 @@ const RecipesList = ({recipes, dispatch, navigation}) => {
     return (
       <TouchableOpacity
         style={styles.recipeDetail}
+        testID="recipeDetail"
         onPress={() => navigation.navigate('Detail', {recipeId: item._id})}>
         {item.image[0] ? (
           <Image style={styles.logo} source={{uri: item.image[0]}} />
@@ -76,6 +77,7 @@ const RecipesList = ({recipes, dispatch, navigation}) => {
         <View style={styles.ingredientsList}>
           <TouchableOpacity
             style={styles.searchWord}
+            testID="ingredient1"
             onPress={() =>
               navigation.navigate('SearchRecipe', {ingredient: 'Huevo'})
             }>
@@ -83,6 +85,7 @@ const RecipesList = ({recipes, dispatch, navigation}) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.searchWord}
+            testID="ingredient2"
             onPress={() =>
               navigation.navigate('SearchRecipe', {ingredient: 'Tomate'})
             }>
@@ -90,6 +93,7 @@ const RecipesList = ({recipes, dispatch, navigation}) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.searchWord}
+            testID="ingredient3"
             onPress={() =>
               navigation.navigate('SearchRecipe', {ingredient: 'Judías'})
             }>
@@ -97,6 +101,7 @@ const RecipesList = ({recipes, dispatch, navigation}) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.searchWord}
+            testID="ingredient4"
             onPress={() =>
               navigation.navigate('SearchRecipe', {ingredient: 'Arroz'})
             }>

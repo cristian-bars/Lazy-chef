@@ -108,6 +108,7 @@ exports[`Given a Login component renders correctly 1`] = `
               "padding": 10,
             }
           }
+          testID="ingredient1"
         >
           <Text>
             Huevo
@@ -133,6 +134,7 @@ exports[`Given a Login component renders correctly 1`] = `
               "padding": 10,
             }
           }
+          testID="ingredient2"
         >
           <Text>
             Tomate
@@ -158,6 +160,7 @@ exports[`Given a Login component renders correctly 1`] = `
               "padding": 10,
             }
           }
+          testID="ingredient3"
         >
           <Text>
             Judías
@@ -183,6 +186,7 @@ exports[`Given a Login component renders correctly 1`] = `
               "padding": 10,
             }
           }
+          testID="ingredient4"
         >
           <Text>
             Arroz
@@ -262,6 +266,7 @@ exports[`Given a Login component renders correctly 1`] = `
                 "opacity": 1,
               }
             }
+            testID="recipeDetail"
           >
             <Image
               source={
@@ -404,6 +409,7 @@ exports[`Given a Login component renders correctly 1`] = `
                 "opacity": 1,
               }
             }
+            testID="recipeDetail"
           >
             <Image
               source={
