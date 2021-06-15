@@ -21,6 +21,7 @@ const Register = ({navigation, dispatch, user, navigation: {goBack}}) => {
     <View style={generalStyles.container}>
       <TouchableOpacity
         style={[generalStyles.roundButton, generalStyles.roundBackButton]}
+        testID="goBack"
         onPress={() => goBack()}>
         <Image
           style={generalStyles.backImage}
@@ -36,20 +37,29 @@ const Register = ({navigation, dispatch, user, navigation: {goBack}}) => {
       <Text style={generalStyles.title}>Nuevo usuario</Text>
       <TextInput
         style={generalStyles.formLogin}
+        value={name}
+        testID="nameInput"
         placeholder="Nombre"
-        onChangeText={name => showName(name)}
+        onChangeText={textName => showName(textName)}
       />
       <TextInput
         style={generalStyles.formLogin}
+        value={email}
+        testID="emailInput"
         placeholder="Email"
-        onChangeText={email => showEmail(email)}
+        onChangeText={textEmail => showEmail(textEmail)}
       />
       <TextInput
         style={generalStyles.formLogin}
+        value={password}
+        testID="passwordInput"
         placeholder="Password"
-        onChangeText={password => showPassword(password)}
+        onChangeText={textPassword => showPassword(textPassword)}
       />
-      <TouchableOpacity style={generalStyles.button} onPress={() => newUser()}>
+      <TouchableOpacity
+        style={generalStyles.button}
+        onPress={() => newUser()}
+        testID="register">
         <Text style={generalStyles.baseText}>Registrarse</Text>
       </TouchableOpacity>
     </View>

@@ -2,19 +2,19 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import {Provider} from 'react-redux';
 import {View, Image} from 'react-native';
-import Login from './src/components/login/Login';
-import NewUser from './src/components/newUser/NewUser';
+import Login from './src/components/login';
+import NewUser from './src/components/newUser';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import RecipesList from './src/components/RecipesList/RecipesList';
+import RecipesList from './src/components/RecipesList';
 import store from './src/redux/stores/index';
-import RecipeDetail from './src/components/recipeDetail/RecipeDetail';
-import UserDetail from './src/components/userDetail/UserDetail';
-import NewRecipe from './src/components/newRecipe/NewRecipe';
+import RecipeDetail from './src/components/recipeDetail';
+import UserDetail from './src/components/userDetail';
+import NewRecipe from './src/components/newRecipe';
 import generalStyles from './generalStyles';
-import FavoritesList from './src/components/favoritesList/FavoritesList';
-import Dashboard from './src/components/dashboard/Dashboard';
-import SearchRecipe from './src/components/searchRecipe/SearchRecipe';
+import FavoritesList from './src/components/favoritesList';
+import Dashboard from './src/components/dashboard';
+import SearchRecipe from './src/components/searchRecipe';
 
 const Tab = createBottomTabNavigator();
 

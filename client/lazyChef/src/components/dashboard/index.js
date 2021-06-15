@@ -10,12 +10,11 @@ import {
 } from 'react-native';
 import {connect} from 'react-redux';
 import {PropTypes} from 'prop-types';
-import {useNavigation} from '@react-navigation/native';
 import {loadRecipes} from '../../redux/actions/recipesActionCreators';
-import styles from './dashboardStyles';
+import styles from './styles';
+import generalStyles from '../../../generalStyles';
 
-const RecipesList = ({recipes, dispatch}) => {
-  const navigation = useNavigation();
+const RecipesList = ({recipes, dispatch, navigation}) => {
   useEffect(() => {
     if (!recipes.length) {
       dispatch(loadRecipes());
@@ -72,7 +71,7 @@ const RecipesList = ({recipes, dispatch}) => {
 
   const Words = () => {
     return (
-      <View style={styles.wordsList}>
+      <View style={generalStyles.wordsList}>
         <Text style={styles.wordsTitle}>Ingredientes</Text>
         <View style={styles.ingredientsList}>
           <TouchableOpacity
@@ -110,13 +109,13 @@ const RecipesList = ({recipes, dispatch}) => {
   return (
     <View style={styles.container}>
       <View>
-        <View style={styles.input}>
+        <View style={generalStyles.input}>
           <Image
-            style={styles.searchImage}
+            style={generalStyles.searchImage}
             source={require('../../img/search.png')}
           />
           <TextInput
-            style={styles.inputText}
+            style={generalStyles.inputText}
             placeholder="Buscar"
             autoCapitalize="none"
           />

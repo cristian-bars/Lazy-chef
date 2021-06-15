@@ -32,51 +32,24 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
-  input: {
-    width: 360,
-    marginTop: 20,
-    height: 50,
-    paddingLeft: 15,
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    textAlign: 'center',
-    fontSize: 25,
-    margin: 15,
-    borderWidth: 2,
-    borderRadius: 25,
-    borderColor: '#397ED0',
-    backgroundColor: 'white',
-  },
-  inputText: {
-    paddingLeft: 20,
-    fontSize: 20,
-  },
-  searchImage: {
-    width: 30,
-    height: 30,
-    opacity: 0.7,
-  },
-  ingList: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    paddingVertical: 5,
-  },
-  ingredientsList: {
-    marginHorizontal: 10,
-    backgroundColor: 'white',
-    fontSize: 25,
-    borderRadius: 5,
-    alignContent: 'flex-end',
-  },
   wordsTitle: {
-    fontSize: 25,
+    fontSize: 30,
     color: '#FF914D',
     backgroundColor: 'white',
-    borderRadius: 5,
   },
-  optionslist: {
-    flexWrap: 'wrap',
+  ingredientsList: {
+    flexDirection: 'row',
+  },
+  searchWord: {
+    marginVertical: 10,
+    marginHorizontal: 10,
+    borderWidth: 1,
+    borderRadius: 5,
+    padding: 10,
+  },
+  listWords: {
+    color: 'white',
+    height: 50,
   },
 });
 

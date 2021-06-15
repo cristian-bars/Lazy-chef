@@ -86,12 +86,16 @@ describe('When invoked a deleteRecipe', () => {
     expect(dispatch).toHaveBeenCalled();
   });
   test('should dispatch DELETE_RECIPE_ERROR', async () => {
-    const deleteRecipeResponse = deleteRecipe();
+    const recipe = {
+      title: 'Huevo duro',
+      author: 'Cristian',
+    };
     global.fetch = jest.fn().mockResolvedValue({
       json: jest.fn().mockRejectedValue(),
     });
+    axios.delete.mockRejectedValue('error');
     const dispatch = jest.fn();
-    await deleteRecipeResponse(dispatch);
+    await deleteRecipe(recipe)(dispatch);
 
     expect(dispatch).toHaveBeenCalledWith({
       type: 'DELETE_RECIPE_ERROR',

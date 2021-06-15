@@ -1,4 +1,4 @@
-import userByIdReducer from './userById';
+import userByIdReducer from './userByIdReducer';
 
 const usersList = [
   {

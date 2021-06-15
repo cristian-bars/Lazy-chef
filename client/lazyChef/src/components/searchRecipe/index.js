@@ -1,5 +1,5 @@
 /* eslint-disable no-shadow */
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -12,7 +12,7 @@ import {connect} from 'react-redux';
 import {PropTypes} from 'prop-types';
 import {useNavigation} from '@react-navigation/native';
 import generalStyles from '../../../generalStyles';
-import styles from './searchRecipeStyles';
+import styles from './styles';
 
 const SearchRecipe = ({recipes, dispatch, route}) => {
   const navigation = useNavigation();
@@ -21,12 +21,12 @@ const SearchRecipe = ({recipes, dispatch, route}) => {
   let [userPalabra, setUserPalabra] = useState([ingredient]);
   let array = [];
   let [arrayToMap, setArrayToMap] = useState([]);
-  //const [text, setText] = useState('');
+
   const addIngredient = () => {
     array.push(...userPalabra, userWord);
     setUserPalabra([...userPalabra, userWord]);
     setArrayToMap(array);
-    //setText();
+
     console.log(arrayToMap);
   };
 
@@ -37,7 +37,7 @@ const SearchRecipe = ({recipes, dispatch, route}) => {
   const Words = () => {
     return (
       <View>
-        <View style={styles.wordsList}>
+        <View style={generalStyles.wordsList}>
           <Text style={styles.wordsTitle}>Mi selección</Text>
           {arrayToMap.length ? (
             <FlatList
@@ -57,18 +57,17 @@ const SearchRecipe = ({recipes, dispatch, route}) => {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <View style={styles.input}>
+        <View style={generalStyles.input}>
           <TouchableOpacity onPress={addIngredient}>
             <Image
-              style={styles.searchImage}
+              style={generalStyles.searchImage}
               source={require('../../img/search.png')}
             />
           </TouchableOpacity>
           <TextInput
-            style={styles.inputText}
+            style={generalStyles.inputText}
             placeholder="Buscar"
             autoCapitalize="none"
-            //value={text}
             onChangeText={ing => searchIngredient(ing)}
           />
         </View>

@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
-import recipeByIdReducer from './recipeById';
+import recipeByIdReducer from './recipeByIdReducer';
 import recipesReducer from './recipesReducer';
-import userByIdReducer from './userById';
+import userByIdReducer from './userByIdReducer';
 import usersReducer from './usersReducer';
 
 const rootReducer = combineReducers({

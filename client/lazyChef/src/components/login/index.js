@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import {View, Image, TouchableOpacity, Text, TextInput} from 'react-native';
 import {getUserById} from '../../redux/actions/usersActionCreators';
-import styles from './loginStyles';
+import styles from './styles';
 import generalStyles from '../../../generalStyles';
 
 const Login = ({navigation, dispatch, userAcces}) => {
@@ -32,14 +32,14 @@ const Login = ({navigation, dispatch, userAcces}) => {
         testID="emailInput"
         placeholder="Email"
         value={email}
-        onChangeText={email => showEmail(email)}
+        onChangeText={textEmail => showEmail(textEmail)}
       />
       <TextInput
         style={generalStyles.formLogin}
         testID="passwordInput"
         placeholder="Password"
         value={password}
-        onChangeText={password => showPassword(password)}
+        onChangeText={textPassword => showPassword(textPassword)}
       />
       <TouchableOpacity
         style={generalStyles.button}

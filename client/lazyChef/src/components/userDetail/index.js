@@ -1,9 +1,10 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, Image, FlatList} from 'react-native';
 import {connect} from 'react-redux';
-import styles from './userDetailStyles';
+import styles from './styles';
 import generalStyles from '../../../generalStyles';
 import {deleteRecipe} from '../../redux/actions/recipesActionCreators';
+import {updateUser} from '../../redux/actions/usersActionCreators';
 
 const UserDetail = ({
   userAcces,
@@ -23,7 +24,17 @@ const UserDetail = ({
   }
 
   const deleteMyRecipe = recipe => {
+    userAcces.user.recipesCreated = myRecipesIds.filter(id => id !== recipe);
+    dispatch(
+      updateUser({
+        id: userAcces.user._id,
+        recipesCreated: userAcces.user.recipesCreated,
+        bearerToken: userAcces.token,
+      }),
+    );
     dispatch(deleteRecipe(recipe));
+
+    navigation.navigate('Dashboard');
   };
 
   const MyCreatedRecipes = ({item}) => {

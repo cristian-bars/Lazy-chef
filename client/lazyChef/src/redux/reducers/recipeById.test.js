@@ -1,4 +1,4 @@
-import recipesReducer from './recipeById';
+import recipesReducer from './recipeByIdReducer';
 
 const recipesList = [
   {

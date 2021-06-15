@@ -11,7 +11,7 @@ import {connect} from 'react-redux';
 import {PropTypes} from 'prop-types';
 import {getRecipeById} from '../../redux/actions/recipesActionCreators';
 import {updateUser} from '../../redux/actions/usersActionCreators';
-import styles from './recipeDetailStyles';
+import styles from './styles';
 import generalStyles from '../../../generalStyles';
 
 const RecipeDetail = ({
@@ -91,8 +91,8 @@ const RecipeDetail = ({
                   ]}
                   onPress={() => {
                     userAcces.user.favouriteRecipes.includes(recipe._id)
-                      ? removeFav(recipe._id)
-                      : addFav(recipe._id);
+                      ? removeFav()
+                      : addFav();
                   }}>
                   {userAcces.user.favouriteRecipes.includes(recipe._id) ? (
                     <Image
