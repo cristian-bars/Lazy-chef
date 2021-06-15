@@ -48,12 +48,12 @@ const NewRecipe = ({userAcces, dispatch, navigation, recipes}) => {
       <TextInput
         style={generalStyles.formLogin}
         placeholder="Title"
-        onChangeText={title => showTitle(title)}
+        onChangeText={textTitle => showTitle(textTitle)}
       />
       <TextInput
         style={generalStyles.formLogin}
         placeholder="Description"
-        onChangeText={description => showDescription(description)}
+        onChangeText={textDescription => showDescription(textDescription)}
       />
       <TouchableOpacity style={generalStyles.button}>
         <Text style={generalStyles.baseText} onPress={addNewRecipe}>

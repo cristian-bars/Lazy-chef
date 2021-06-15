@@ -39,19 +39,19 @@ const Register = ({navigation, dispatch, user, navigation: {goBack}}) => {
         style={generalStyles.formLogin}
         testID="nameInput"
         placeholder="Nombre"
-        onChangeText={name => showName(name)}
+        onChangeText={textName => showName(textName)}
       />
       <TextInput
         style={generalStyles.formLogin}
         testID="emailInput"
         placeholder="Email"
-        onChangeText={email => showEmail(email)}
+        onChangeText={textEmail => showEmail(textEmail)}
       />
       <TextInput
         style={generalStyles.formLogin}
         testID="passwordInput"
         placeholder="Password"
-        onChangeText={password => showPassword(password)}
+        onChangeText={textPassword => showPassword(textPassword)}
       />
       <TouchableOpacity
         style={generalStyles.button}

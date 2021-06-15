@@ -1,5 +1,5 @@
 /* eslint-disable no-shadow */
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -21,12 +21,12 @@ const SearchRecipe = ({recipes, dispatch, route}) => {
   let [userPalabra, setUserPalabra] = useState([ingredient]);
   let array = [];
   let [arrayToMap, setArrayToMap] = useState([]);
-  //const [text, setText] = useState('');
+
   const addIngredient = () => {
     array.push(...userPalabra, userWord);
     setUserPalabra([...userPalabra, userWord]);
     setArrayToMap(array);
-    //setText();
+
     console.log(arrayToMap);
   };
 
@@ -68,7 +68,6 @@ const SearchRecipe = ({recipes, dispatch, route}) => {
             style={styles.inputText}
             placeholder="Buscar"
             autoCapitalize="none"
-            //value={text}
             onChangeText={ing => searchIngredient(ing)}
           />
         </View>
