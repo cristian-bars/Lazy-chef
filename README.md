@@ -33,7 +33,6 @@ To see unit & component tests on both files
 - Mongoose
 - Express
 - Passport
-- Typescript
 
 ## Unit & Component testing:
  - Jest 
