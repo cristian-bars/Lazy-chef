@@ -9,7 +9,10 @@ import {
 } from 'react-native';
 import {connect} from 'react-redux';
 import {PropTypes} from 'prop-types';
-import {getRecipeById} from '../../redux/actions/recipesActionCreators';
+import {
+  getRecipeById,
+  loadRecipes,
+} from '../../redux/actions/recipesActionCreators';
 import {updateUser} from '../../redux/actions/usersActionCreators';
 import styles from './styles';
 import generalStyles from '../../../generalStyles';
@@ -44,6 +47,7 @@ const RecipeDetail = ({
         bearerToken: userAcces.token,
       }),
     );
+    dispatch(loadRecipes());
   }
 
   function removeFav() {
@@ -56,6 +60,7 @@ const RecipeDetail = ({
         bearerToken: userAcces.token,
       }),
     );
+    dispatch(loadRecipes());
   }
 
   const showSteps = () => {
@@ -124,17 +129,21 @@ const RecipeDetail = ({
                     style={generalStyles.backImage}
                     source={require('../../img/back.png')}
                   />
-                  <TouchableOpacity
-                    style={[
-                      generalStyles.roundButton,
-                      generalStyles.roundStarButton,
-                    ]}
-                    onPress={() => goBack()}>
-                    <Image
-                      style={styles.starImage}
-                      source={require('../../img/estrella.png')}
-                    />
-                  </TouchableOpacity>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[
+                    generalStyles.roundButton,
+                    generalStyles.roundStarButton,
+                  ]}
+                  onPress={() => {
+                    userAcces.user.favouriteRecipes.includes(recipe._id)
+                      ? removeFav()
+                      : addFav();
+                  }}>
+                  <Image
+                    style={styles.starImage}
+                    source={require('../../img/estrella.png')}
+                  />
                 </TouchableOpacity>
                 <Image
                   style={styles.recipeImage}
