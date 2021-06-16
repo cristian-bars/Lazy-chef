@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import {View, TouchableOpacity, Text, TextInput, Image} from 'react-native';

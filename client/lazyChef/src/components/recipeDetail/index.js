@@ -85,6 +85,7 @@ const RecipeDetail = ({
                   />
                 </TouchableOpacity>
                 <TouchableOpacity
+                  testID="favoritePress"
                   style={[
                     generalStyles.roundButton,
                     generalStyles.roundStarButton,

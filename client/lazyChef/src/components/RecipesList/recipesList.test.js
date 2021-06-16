@@ -41,12 +41,35 @@ describe('Given a RecipesList component', () => {
   });
 
   test('renders correctly', () => {
-    console.log(route);
     const wrapper = render(
       <Provider store={myStore}>
         <RecipesList route={route} />
       </Provider>,
     );
     expect(wrapper).toMatchSnapshot();
+  });
+
+  describe('When recipe is pressed', () => {
+    test('Then navigation.navigate is invoked to show recipe detail', () => {
+      myStore = mockStore({
+        recipes: [
+          {
+            title: 'macarrones',
+            description: '1a',
+            image: ['a'],
+            recipeIngredient: ['b'],
+          },
+        ],
+      });
+      const {getByTestId} = render(
+        <Provider store={myStore}>
+          <RecipesList route={route} navigation={navigation} />
+        </Provider>,
+      );
+      const recipeDetail = getByTestId('moveToDetail');
+      fireEvent.press(recipeDetail);
+
+      expect(navigation.navigate).toHaveBeenCalled();
+    });
   });
 });

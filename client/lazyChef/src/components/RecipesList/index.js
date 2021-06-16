@@ -20,6 +20,7 @@ const RecipesList = ({recipes, dispatch, route, navigation}) => {
     return (
       <TouchableOpacity
         style={generalStyles.recipeDetail}
+        testID="moveToDetail"
         onPress={() => navigation.navigate('Detail', {recipeId: item._id})}>
         {item.image[0] ? (
           <Image

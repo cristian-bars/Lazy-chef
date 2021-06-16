@@ -2,7 +2,6 @@ import React from 'react';
 import {View, Text, FlatList, Image, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
 import {PropTypes} from 'prop-types';
-import {useNavigation} from '@react-navigation/native';
 import styles from './styles';
 import generalStyles from '../../../generalStyles';
 
