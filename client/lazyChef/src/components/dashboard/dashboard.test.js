@@ -55,4 +55,54 @@ describe('Given a Login component', () => {
   //   );
   //   expect(actions.loadRecipes).toHaveBeenCalled();
   // });
+
+  describe('When ingredient is pressed', () => {
+    test('Then navigation.navigate is invoked with ingredient 1', () => {
+      const {getByTestId} = render(
+        <Provider store={myStore}>
+          <Dashboard navigation={navigation} />
+        </Provider>,
+      );
+      const recipeDetail = getByTestId('ingredient1');
+      fireEvent.press(recipeDetail);
+
+      expect(navigation.navigate).toHaveBeenCalled();
+    });
+  });
+
+  test('Then navigation.navigate is invoked with ingredient 2', () => {
+    const {getByTestId} = render(
+      <Provider store={myStore}>
+        <Dashboard navigation={navigation} />
+      </Provider>,
+    );
+    const recipeDetail = getByTestId('ingredient2');
+    fireEvent.press(recipeDetail);
+
+    expect(navigation.navigate).toHaveBeenCalled();
+  });
+
+  test('Then navigation.navigate is invoked with ingredient 3', () => {
+    const {getByTestId} = render(
+      <Provider store={myStore}>
+        <Dashboard navigation={navigation} />
+      </Provider>,
+    );
+    const recipeDetail = getByTestId('ingredient3');
+    fireEvent.press(recipeDetail);
+
+    expect(navigation.navigate).toHaveBeenCalled();
+  });
+
+  test('Then navigation.navigate is invoked with ingredient 4', () => {
+    const {getByTestId} = render(
+      <Provider store={myStore}>
+        <Dashboard navigation={navigation} />
+      </Provider>,
+    );
+    const recipeDetail = getByTestId('ingredient4');
+    fireEvent.press(recipeDetail);
+
+    expect(navigation.navigate).toHaveBeenCalled();
+  });
 });

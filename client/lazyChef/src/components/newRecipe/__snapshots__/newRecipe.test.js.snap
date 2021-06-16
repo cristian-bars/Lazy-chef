@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a newRecipe component When is render And all is correct Then is matched to snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#D3E0FF",
+      "flex": 1,
+      "justifyContent": "center",
+      "padding": 24,
+      "paddingTop": 50,
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderRadius": 25,
+        "height": 10,
+        "left": 20,
+        "opacity": 1,
+        "padding": 20,
+        "position": "absolute",
+        "top": 20,
+        "width": 10,
+        "zIndex": 1,
+      }
+    }
+    testID="goBack"
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/img/back.png",
+        }
+      }
+      style={
+        Object {
+          "height": 20,
+          "left": -12,
+          "position": "relative",
+          "top": -10,
+          "width": 20,
+        }
+      }
+    />
+  </View>
+  <TextInput
+    allowFontScaling={true}
+    onChangeText={[Function]}
+    placeholder="Title"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 25,
+        "fontSize": 20,
+        "height": 50,
+        "justifyContent": "center",
+        "marginVertical": 5,
+        "paddingLeft": 20,
+        "width": 300,
+      }
+    }
+    testID="titleInput"
+    underlineColorAndroid="transparent"
+    value=""
+  />
+  <TextInput
+    allowFontScaling={true}
+    onChangeText={[Function]}
+    placeholder="Description"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 25,
+        "fontSize": 20,
+        "height": 50,
+        "justifyContent": "center",
+        "marginVertical": 5,
+        "paddingLeft": 20,
+        "width": 300,
+      }
+    }
+    testID="descriptionInput"
+    underlineColorAndroid="transparent"
+    value=""
+  />
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 25,
+        "height": 50,
+        "justifyContent": "center",
+        "marginTop": 30,
+        "opacity": 1,
+        "width": 300,
+      }
+    }
+    testID="addRecipe"
+  >
+    <Text
+      style={
+        Object {
+          "fontFamily": "Cochin",
+          "fontSize": 25,
+        }
+      }
+    >
+      Añadir
+    </Text>
+  </View>
+</View>
+`;

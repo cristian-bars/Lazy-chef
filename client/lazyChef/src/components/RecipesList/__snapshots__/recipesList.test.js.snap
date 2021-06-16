@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Given a Login component renders correctly 1`] = `
+exports[`Given a RecipesList component renders correctly 1`] = `
 <View
   style={
     Object {
@@ -8,192 +8,209 @@ exports[`Given a Login component renders correctly 1`] = `
     }
   }
 >
-  <View>
-    <View
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <Text
       style={
         Object {
-          "alignItems": "center",
           "backgroundColor": "white",
-          "borderColor": "#397ED0",
-          "borderRadius": 25,
-          "borderWidth": 2,
-          "display": "flex",
-          "flexDirection": "row",
+          "borderRadius": 5,
+          "color": "#FF914D",
           "fontSize": 25,
-          "height": 50,
-          "margin": 15,
-          "marginTop": 20,
-          "paddingLeft": 15,
-          "textAlign": "center",
-          "width": 360,
         }
       }
     >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../src/img/search.png",
-          }
-        }
-        style={
-          Object {
-            "height": 30,
-            "opacity": 0.7,
-            "width": 30,
-          }
-        }
-      />
-      <TextInput
-        allowFontScaling={true}
-        autoCapitalize="none"
-        placeholder="Buscar"
-        rejectResponderTermination={true}
-        style={
-          Object {
-            "fontSize": 20,
-            "paddingLeft": 20,
-          }
-        }
-        underlineColorAndroid="transparent"
-      />
-    </View>
-  </View>
-  <View>
-    <View
+      Recetas con 
+    </Text>
+    <RCTScrollView
+      data="tomate"
+      disableVirtualization={false}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={true}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
       style={
         Object {
-          "backgroundColor": "white",
-          "flexDirection": "column",
           "flexWrap": "wrap",
-          "margin": 10,
-          "padding": 10,
         }
       }
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
     >
-      <Text
-        style={
-          Object {
-            "backgroundColor": "white",
-            "color": "#FF914D",
-            "fontSize": 30,
-          }
-        }
-      >
-        Ingredientes
-      </Text>
-      <View
-        style={
-          Object {
-            "flexDirection": "row",
-          }
-        }
-      >
+      <View>
         <View
-          accessible={true}
-          focusable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
+          onLayout={[Function]}
           style={
-            Object {
-              "borderRadius": 5,
-              "borderWidth": 1,
-              "marginHorizontal": 10,
-              "marginVertical": 10,
-              "opacity": 1,
-              "padding": 10,
-            }
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+              null,
+            ]
           }
-          testID="ingredient1"
         >
-          <Text>
-            Huevo
+          <Text
+            style={
+              Object {
+                "alignContent": "flex-end",
+                "backgroundColor": "white",
+                "borderRadius": 5,
+                "fontSize": 25,
+                "marginHorizontal": 10,
+              }
+            }
+          >
+            t
           </Text>
         </View>
         <View
-          accessible={true}
-          focusable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
+          onLayout={[Function]}
           style={
-            Object {
-              "borderRadius": 5,
-              "borderWidth": 1,
-              "marginHorizontal": 10,
-              "marginVertical": 10,
-              "opacity": 1,
-              "padding": 10,
-            }
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+              null,
+            ]
           }
-          testID="ingredient2"
         >
-          <Text>
-            Tomate
+          <Text
+            style={
+              Object {
+                "alignContent": "flex-end",
+                "backgroundColor": "white",
+                "borderRadius": 5,
+                "fontSize": 25,
+                "marginHorizontal": 10,
+              }
+            }
+          >
+            o
           </Text>
         </View>
         <View
-          accessible={true}
-          focusable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
+          onLayout={[Function]}
           style={
-            Object {
-              "borderRadius": 5,
-              "borderWidth": 1,
-              "marginHorizontal": 10,
-              "marginVertical": 10,
-              "opacity": 1,
-              "padding": 10,
-            }
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+              null,
+            ]
           }
-          testID="ingredient3"
         >
-          <Text>
-            Judías
+          <Text
+            style={
+              Object {
+                "alignContent": "flex-end",
+                "backgroundColor": "white",
+                "borderRadius": 5,
+                "fontSize": 25,
+                "marginHorizontal": 10,
+              }
+            }
+          >
+            m
           </Text>
         </View>
         <View
-          accessible={true}
-          focusable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
+          onLayout={[Function]}
           style={
-            Object {
-              "borderRadius": 5,
-              "borderWidth": 1,
-              "marginHorizontal": 10,
-              "marginVertical": 10,
-              "opacity": 1,
-              "padding": 10,
-            }
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+              null,
+            ]
           }
-          testID="ingredient4"
         >
-          <Text>
-            Arroz
+          <Text
+            style={
+              Object {
+                "alignContent": "flex-end",
+                "backgroundColor": "white",
+                "borderRadius": 5,
+                "fontSize": 25,
+                "marginHorizontal": 10,
+              }
+            }
+          >
+            a
+          </Text>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Object {
+                "alignContent": "flex-end",
+                "backgroundColor": "white",
+                "borderRadius": 5,
+                "fontSize": 25,
+                "marginHorizontal": 10,
+              }
+            }
+          >
+            t
+          </Text>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Object {
+                "alignContent": "flex-end",
+                "backgroundColor": "white",
+                "borderRadius": 5,
+                "fontSize": 25,
+                "marginHorizontal": 10,
+              }
+            }
+          >
+            e
           </Text>
         </View>
       </View>
-    </View>
+    </RCTScrollView>
   </View>
   <View>
     <RCTScrollView
@@ -266,7 +283,6 @@ exports[`Given a Login component renders correctly 1`] = `
                 "opacity": 1,
               }
             }
-            testID="recipeDetail"
           >
             <Image
               source={
@@ -409,7 +425,6 @@ exports[`Given a Login component renders correctly 1`] = `
                 "opacity": 1,
               }
             }
-            testID="recipeDetail"
           >
             <Image
               source={

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a SearchRecipe component renders correctly 1`] = `
+<recipeDetail
+  route={
+    Object {
+      "params": Object {
+        "recipeId": "1234",
+      },
+    }
+  }
+/>
+`;

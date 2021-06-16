@@ -10,12 +10,10 @@ import {
 } from 'react-native';
 import {connect} from 'react-redux';
 import {PropTypes} from 'prop-types';
-import {useNavigation} from '@react-navigation/native';
 import generalStyles from '../../../generalStyles';
 import styles from './styles';
 
-const SearchRecipe = ({recipes, dispatch, route}) => {
-  const navigation = useNavigation();
+const SearchRecipe = ({recipes, dispatch, route, navigation}) => {
   const {ingredient} = route.params;
   let [userWord, searchIngredient] = useState('');
   let [userPalabra, setUserPalabra] = useState([ingredient]);
@@ -26,8 +24,6 @@ const SearchRecipe = ({recipes, dispatch, route}) => {
     array.push(...userPalabra, userWord);
     setUserPalabra([...userPalabra, userWord]);
     setArrayToMap(array);
-
-    console.log(arrayToMap);
   };
 
   const listRender = ({item}) => {

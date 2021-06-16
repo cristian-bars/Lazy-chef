@@ -6,7 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 import styles from './styles';
 import generalStyles from '../../../generalStyles';
 
-const RecipesList = ({recipes, dispatch, userAccess}) => {
+const RecipesList = ({recipes, dispatch, userAccess, navigation}) => {
   const recipesList = recipes;
 
   const myRecipesIds = userAccess.user.favouriteRecipes;
@@ -18,9 +18,6 @@ const RecipesList = ({recipes, dispatch, userAccess}) => {
       myRecipesList.push(myRecipe);
     });
   }
-
-  console.log(myRecipesList);
-  const navigation = useNavigation();
 
   const listRender = ({item}) => {
     return (
@@ -75,6 +72,8 @@ const RecipesList = ({recipes, dispatch, userAccess}) => {
   return (
     <View style={styles.container}>
       <View>
+        {console.log('myRecipesList')}
+        {console.log(myRecipesList)}
         {recipes.length ? (
           <FlatList
             style={styles.list}

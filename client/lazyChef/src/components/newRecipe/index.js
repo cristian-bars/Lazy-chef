@@ -24,7 +24,6 @@ const NewRecipe = ({userAcces, dispatch, navigation, recipes}) => {
   const goBack = () => {
     const userRecipesIds = userAcces.user.recipesCreated;
     userRecipesIds.push(recipes[recipes.length - 1]._id);
-    console.log(userAcces.user);
     dispatch(
       updateUser({
         id: userAcces.user._id,
@@ -39,6 +38,7 @@ const NewRecipe = ({userAcces, dispatch, navigation, recipes}) => {
     <View style={styles.newRecipeContainer}>
       <TouchableOpacity
         style={[generalStyles.roundButton, generalStyles.roundBackButton]}
+        testID="goBack"
         onPress={() => goBack()}>
         <Image
           style={generalStyles.backImage}
@@ -47,18 +47,23 @@ const NewRecipe = ({userAcces, dispatch, navigation, recipes}) => {
       </TouchableOpacity>
       <TextInput
         style={generalStyles.formLogin}
+        testID="titleInput"
+        value={title}
         placeholder="Title"
         onChangeText={textTitle => showTitle(textTitle)}
       />
       <TextInput
         style={generalStyles.formLogin}
+        testID="descriptionInput"
+        value={description}
         placeholder="Description"
         onChangeText={textDescription => showDescription(textDescription)}
       />
-      <TouchableOpacity style={generalStyles.button}>
-        <Text style={generalStyles.baseText} onPress={addNewRecipe}>
-          Añadir
-        </Text>
+      <TouchableOpacity
+        style={generalStyles.button}
+        testID="addRecipe"
+        onPress={addNewRecipe}>
+        <Text style={generalStyles.baseText}>Añadir</Text>
       </TouchableOpacity>
     </View>
   );

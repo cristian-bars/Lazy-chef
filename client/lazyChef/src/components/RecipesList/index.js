@@ -3,13 +3,11 @@ import React, {useEffect} from 'react';
 import {View, Text, FlatList, Image, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
 import {PropTypes} from 'prop-types';
-import {useNavigation} from '@react-navigation/native';
 import {loadRecipes} from '../../redux/actions/recipesActionCreators';
 import styles from './styles';
 import generalStyles from '../../../generalStyles';
 
-const RecipesList = ({recipes, dispatch, route}) => {
-  const navigation = useNavigation();
+const RecipesList = ({recipes, dispatch, route, navigation}) => {
   const {ingredient} = route.params;
 
   useEffect(() => {
