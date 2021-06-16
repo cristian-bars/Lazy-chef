@@ -1,5 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Given a RecipeDetail component renders correctly 1`] = `
+<RCTScrollView
+  style={
+    Object {
+      "backgroundColor": "#D3E0FF",
+    }
+  }
+>
+  <View>
+    <Text>
+      No hi ha recepta a carregar
+    </Text>
+  </View>
+</RCTScrollView>
+`;
+
 exports[`Given a SearchRecipe component renders correctly 1`] = `
 <recipeDetail
   route={
