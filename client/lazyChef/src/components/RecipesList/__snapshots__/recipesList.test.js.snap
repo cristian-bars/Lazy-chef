@@ -1,0 +1,552 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a RecipesList component renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#D3E0FF",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderRadius": 5,
+          "color": "#FF914D",
+          "fontSize": 25,
+        }
+      }
+    >
+      Recetas con 
+    </Text>
+    <RCTScrollView
+      data="tomate"
+      disableVirtualization={false}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={true}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+      style={
+        Object {
+          "flexWrap": "wrap",
+        }
+      }
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <View>
+        <View
+          onLayout={[Function]}
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Object {
+                "alignContent": "flex-end",
+                "backgroundColor": "white",
+                "borderRadius": 5,
+                "fontSize": 25,
+                "marginHorizontal": 10,
+              }
+            }
+          >
+            t
+          </Text>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Object {
+                "alignContent": "flex-end",
+                "backgroundColor": "white",
+                "borderRadius": 5,
+                "fontSize": 25,
+                "marginHorizontal": 10,
+              }
+            }
+          >
+            o
+          </Text>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Object {
+                "alignContent": "flex-end",
+                "backgroundColor": "white",
+                "borderRadius": 5,
+                "fontSize": 25,
+                "marginHorizontal": 10,
+              }
+            }
+          >
+            m
+          </Text>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Object {
+                "alignContent": "flex-end",
+                "backgroundColor": "white",
+                "borderRadius": 5,
+                "fontSize": 25,
+                "marginHorizontal": 10,
+              }
+            }
+          >
+            a
+          </Text>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Object {
+                "alignContent": "flex-end",
+                "backgroundColor": "white",
+                "borderRadius": 5,
+                "fontSize": 25,
+                "marginHorizontal": 10,
+              }
+            }
+          >
+            t
+          </Text>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Object {
+                "alignContent": "flex-end",
+                "backgroundColor": "white",
+                "borderRadius": 5,
+                "fontSize": 25,
+                "marginHorizontal": 10,
+              }
+            }
+          >
+            e
+          </Text>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+  <View>
+    <RCTScrollView
+      data={
+        Array [
+          Object {
+            "description": "1a",
+            "image": Array [
+              "a",
+            ],
+            "recipeIngredient": Array [
+              "b",
+            ],
+            "title": "macarrones",
+          },
+          Object {
+            "description": "2a",
+            "image": Array [
+              "a",
+            ],
+            "recipeIngredient": Array [
+              "b",
+            ],
+            "title": "Queso",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "white",
+                "flexDirection": "column",
+                "margin": 10,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "a",
+                }
+              }
+              style={
+                Object {
+                  "height": 150,
+                }
+              }
+            />
+            <Text
+              style={
+                Object {
+                  "flex": 1,
+                  "flexWrap": "wrap",
+                  "fontSize": 20,
+                  "padding": 10,
+                }
+              }
+            >
+              macarrones
+            </Text>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "space-around",
+                }
+              }
+            >
+              <View>
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/img/Ingredientes.jpg",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 50,
+                      "width": 50,
+                    }
+                  }
+                />
+                <Text
+                  style={
+                    Object {
+                      "flexWrap": "wrap",
+                      "fontSize": 15,
+                      "padding": 10,
+                    }
+                  }
+                >
+                  1
+                </Text>
+              </View>
+              <View>
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/img/herramientas-y-utensilios.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 50,
+                      "width": 50,
+                    }
+                  }
+                />
+                <Text
+                  style={
+                    Object {
+                      "flexWrap": "wrap",
+                      "fontSize": 15,
+                      "padding": 10,
+                    }
+                  }
+                />
+              </View>
+              <View>
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/img/duration.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 50,
+                      "width": 50,
+                    }
+                  }
+                />
+                <Text
+                  style={
+                    Object {
+                      "flexWrap": "wrap",
+                      "fontSize": 15,
+                      "padding": 10,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <Text
+              style={
+                Object {
+                  "flexWrap": "wrap",
+                  "fontSize": 15,
+                  "padding": 10,
+                }
+              }
+            />
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "white",
+                "flexDirection": "column",
+                "margin": 10,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "a",
+                }
+              }
+              style={
+                Object {
+                  "height": 150,
+                }
+              }
+            />
+            <Text
+              style={
+                Object {
+                  "flex": 1,
+                  "flexWrap": "wrap",
+                  "fontSize": 20,
+                  "padding": 10,
+                }
+              }
+            >
+              Queso
+            </Text>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "space-around",
+                }
+              }
+            >
+              <View>
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/img/Ingredientes.jpg",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 50,
+                      "width": 50,
+                    }
+                  }
+                />
+                <Text
+                  style={
+                    Object {
+                      "flexWrap": "wrap",
+                      "fontSize": 15,
+                      "padding": 10,
+                    }
+                  }
+                >
+                  1
+                </Text>
+              </View>
+              <View>
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/img/herramientas-y-utensilios.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 50,
+                      "width": 50,
+                    }
+                  }
+                />
+                <Text
+                  style={
+                    Object {
+                      "flexWrap": "wrap",
+                      "fontSize": 15,
+                      "padding": 10,
+                    }
+                  }
+                />
+              </View>
+              <View>
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/img/duration.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 50,
+                      "width": 50,
+                    }
+                  }
+                />
+                <Text
+                  style={
+                    Object {
+                      "flexWrap": "wrap",
+                      "fontSize": 15,
+                      "padding": 10,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <Text
+              style={
+                Object {
+                  "flexWrap": "wrap",
+                  "fontSize": 15,
+                  "padding": 10,
+                }
+              }
+            />
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;
