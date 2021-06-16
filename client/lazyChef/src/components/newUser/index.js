@@ -45,14 +45,14 @@ const Register = ({navigation, dispatch, user, navigation: {goBack}}) => {
         style={generalStyles.formLogin}
         value={email}
         testID="emailInput"
-        placeholder="Email"
+        placeholder="Correo"
         onChangeText={textEmail => showEmail(textEmail)}
       />
       <TextInput
         style={generalStyles.formLogin}
         value={password}
         testID="passwordInput"
-        placeholder="Password"
+        placeholder="Contraseña"
         onChangeText={textPassword => showPassword(textPassword)}
       />
       <TouchableOpacity

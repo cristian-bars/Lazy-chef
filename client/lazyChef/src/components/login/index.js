@@ -30,14 +30,14 @@ const Login = ({navigation, dispatch, userAcces}) => {
       <TextInput
         style={generalStyles.formLogin}
         testID="emailInput"
-        placeholder="Email"
+        placeholder="Correo"
         value={email}
         onChangeText={textEmail => showEmail(textEmail)}
       />
       <TextInput
         style={generalStyles.formLogin}
         testID="passwordInput"
-        placeholder="Password"
+        placeholder="Contraseña"
         value={password}
         onChangeText={textPassword => showPassword(textPassword)}
       />
