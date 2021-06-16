@@ -12,7 +12,6 @@ describe('Given a RecipeDetail component', () => {
   let navigation;
   let myStore;
   let route;
-  let ingredient;
   beforeEach(() => {
     jest.spyOn(actions, 'updateUser').mockReturnValueOnce({type: ''});
     myStore = mockStore({
@@ -41,7 +40,6 @@ describe('Given a RecipeDetail component', () => {
   });
 
   test('renders correctly', () => {
-    console.log(route.params);
     const wrapper = render(
       <Provider store={myStore}>
         <RecipeDetail route={route} navigation={navigation} />

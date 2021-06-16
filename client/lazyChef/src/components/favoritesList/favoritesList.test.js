@@ -3,15 +3,12 @@ import React from 'react';
 import FavoritesList from './index';
 import thunk from 'redux-thunk';
 import Store from 'redux-mock-store';
-import * as actions from '../../redux/actions/recipesActionCreators';
 import {Provider} from 'react-redux';
-import {render, fireEvent} from '@testing-library/react-native';
+import {render} from '@testing-library/react-native';
 
 describe('Given a FavoritesList component', () => {
   const mockStore = Store([thunk]);
-  let navigation;
   let myStore;
-  let route;
   beforeEach(() => {
     myStore = mockStore({
       userAcces: {
@@ -36,9 +33,6 @@ describe('Given a FavoritesList component', () => {
         },
       ],
     });
-    navigation = {
-      navigate: jest.fn(),
-    };
   });
 
   test('renders correctly', () => {

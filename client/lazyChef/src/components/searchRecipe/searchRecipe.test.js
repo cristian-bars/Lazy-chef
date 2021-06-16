@@ -5,11 +5,10 @@ import thunk from 'redux-thunk';
 import Store from 'redux-mock-store';
 import * as actions from '../../redux/actions/recipesActionCreators';
 import {Provider} from 'react-redux';
-import {render, fireEvent} from '@testing-library/react-native';
+import {render} from '@testing-library/react-native';
 
 describe('Given a SearchRecipe component', () => {
   const mockStore = Store([thunk]);
-  let navigation;
   let myStore;
   let route;
   beforeEach(() => {
@@ -30,9 +29,6 @@ describe('Given a SearchRecipe component', () => {
         },
       ],
     });
-    navigation = {
-      navigate: jest.fn(),
-    };
     route = {
       params: {
         ingredient: 'tomate',

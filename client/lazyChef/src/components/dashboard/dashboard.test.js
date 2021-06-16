@@ -11,7 +11,6 @@ describe('Given a Login component', () => {
   const mockStore = Store([thunk]);
   let navigation;
   let myStore;
-  let route;
   beforeEach(() => {
     jest.spyOn(actions, 'loadRecipes').mockReturnValueOnce({type: ''});
     myStore = mockStore({
@@ -33,9 +32,6 @@ describe('Given a Login component', () => {
     navigation = {
       navigate: jest.fn(),
     };
-    route = {
-      recipes: '',
-    };
   });
 
   test('renders correctly', () => {
@@ -46,15 +42,6 @@ describe('Given a Login component', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
-  // test('Then actions.loadRecipes is invoked', () => {
-  //   const recipes = [];
-  //   render(
-  //     <Provider store={myStore}>
-  //       <Dashboard route={route} />
-  //     </Provider>,
-  //   );
-  //   expect(actions.loadRecipes).toHaveBeenCalled();
-  // });
 
   describe('When ingredient is pressed', () => {
     test('Then navigation.navigate is invoked with ingredient 1', () => {
