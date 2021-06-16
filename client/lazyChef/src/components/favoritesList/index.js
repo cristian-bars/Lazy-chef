@@ -71,8 +71,6 @@ const RecipesList = ({recipes, dispatch, userAccess, navigation}) => {
   return (
     <View style={styles.container}>
       <View>
-        {console.log('myRecipesList')}
-        {console.log(myRecipesList)}
         {recipes.length ? (
           <FlatList
             style={styles.list}
