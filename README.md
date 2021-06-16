@@ -41,4 +41,3 @@ To see unit & component tests on both files
 ## Other Libraries & Tools:
 - EsLint (for good pratices & code styling)
 - Axios
-- react-router-dom
