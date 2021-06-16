@@ -283,6 +283,7 @@ exports[`Given a RecipesList component renders correctly 1`] = `
                 "opacity": 1,
               }
             }
+            testID="moveToDetail"
           >
             <Image
               source={
@@ -425,6 +426,7 @@ exports[`Given a RecipesList component renders correctly 1`] = `
                 "opacity": 1,
               }
             }
+            testID="moveToDetail"
           >
             <Image
               source={
