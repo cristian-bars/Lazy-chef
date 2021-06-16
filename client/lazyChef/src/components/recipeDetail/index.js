@@ -220,7 +220,7 @@ const RecipeDetail = ({
           </View>
         </>
       ) : (
-        <Text>No hi ha recepta a carregar</Text>
+        <Text>Cargando receta ...</Text>
       )}
     </ScrollView>
   );

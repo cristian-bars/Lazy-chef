@@ -33,8 +33,6 @@ const UserDetail = ({
       }),
     );
     dispatch(deleteRecipe(recipe));
-
-    navigation.navigate('Dashboard');
   };
 
   const MyCreatedRecipes = ({item}) => {
@@ -99,7 +97,7 @@ const UserDetail = ({
         </View>
       ) : (
         <View>
-          <Text style={styles.titleText}>No hi ha usuari carregat</Text>
+          <Text style={styles.titleText}>Cargando usuario ...</Text>
         </View>
       )}
     </View>

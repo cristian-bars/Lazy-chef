@@ -138,7 +138,7 @@ const RecipesList = ({recipes, dispatch, navigation}) => {
             renderItem={listRender}
           />
         ) : (
-          <Text>No tenim receptes</Text>
+          <Text>Cargando recetas ...</Text>
         )}
       </View>
     </View>

@@ -92,7 +92,7 @@ const RecipesList = ({recipes, dispatch, route, navigation}) => {
             renderItem={listRender}
           />
         ) : (
-          <Text>No tenim receptes</Text>
+          <Text>Cargando recetas ...</Text>
         )}
       </View>
     </View>
