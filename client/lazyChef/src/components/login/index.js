@@ -33,6 +33,7 @@ const Login = ({navigation, dispatch, userAcces}) => {
         placeholder="Correo"
         value={email}
         onChangeText={textEmail => showEmail(textEmail)}
+        textContentType="emailAddress"
       />
       <TextInput
         style={generalStyles.formLogin}
@@ -40,6 +41,8 @@ const Login = ({navigation, dispatch, userAcces}) => {
         placeholder="Contraseña"
         value={password}
         onChangeText={textPassword => showPassword(textPassword)}
+        textContentType="password"
+        secureTextEntry={true}
       />
       <TouchableOpacity
         style={generalStyles.button}

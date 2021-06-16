@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     color: '#FF914D',
     backgroundColor: 'white',
     borderRadius: 5,
+    marginLeft: 10,
   },
   optionslist: {
     flexWrap: 'wrap',

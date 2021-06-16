@@ -26,13 +26,13 @@ const SearchRecipe = ({recipes, dispatch, route, navigation}) => {
   };
 
   const listRender = ({item}) => {
-    return <Text>{item}</Text>;
+    return <Text style={styles.selectedWord}>{item}</Text>;
   };
 
   const Words = () => {
     return (
       <View>
-        <View style={generalStyles.wordsList}>
+        <View style={styles.wordsList}>
           <Text style={styles.wordsTitle}>Mi selección</Text>
           {arrayToMap.length ? (
             <FlatList
@@ -42,9 +42,8 @@ const SearchRecipe = ({recipes, dispatch, route, navigation}) => {
               renderItem={listRender}
             />
           ) : (
-            <Text>{ingredient}</Text>
+            <Text style={styles.selectedWord}>{ingredient}</Text>
           )}
-          <Text style={styles.searchWord} />
         </View>
       </View>
     );
