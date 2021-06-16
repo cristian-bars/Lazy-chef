@@ -3,7 +3,7 @@ import React from 'react';
 import RecipeDetail from './index';
 import thunk from 'redux-thunk';
 import Store from 'redux-mock-store';
-import * as actions from '../../redux/actions/recipesActionCreators';
+import * as actions from '../../redux/actions/usersActionCreators';
 import {Provider} from 'react-redux';
 import {render, fireEvent} from '@testing-library/react-native';
 
@@ -14,13 +14,19 @@ describe('Given a RecipeDetail component', () => {
   let route;
   let ingredient;
   beforeEach(() => {
-    jest.spyOn(actions, 'loadRecipes').mockReturnValueOnce({type: ''});
+    jest.spyOn(actions, 'updateUser').mockReturnValueOnce({type: ''});
     myStore = mockStore({
       recipe: {
+        _id: '1234abcd',
         title: 'macarrones',
         description: '1a',
         image: ['a'],
         recipeIngredient: ['b'],
+      },
+      userAcces: {
+        user: {
+          favouriteRecipes: ['1234abcd'],
+        },
       },
     });
     navigation = {
@@ -42,5 +48,59 @@ describe('Given a RecipeDetail component', () => {
       </Provider>,
     );
     expect(wrapper).toMatchSnapshot();
+  });
+
+  describe('When star button is pressed', () => {
+    test('Then removeFav is invoked', () => {
+      myStore = mockStore({
+        userAcces: {
+          user: {
+            favouriteRecipes: ['1234abcd'],
+          },
+        },
+        recipe: {
+          _id: '1234abcd',
+          title: 'macarrones',
+          description: '1a',
+          image: ['a'],
+          recipeIngredient: ['b'],
+        },
+      });
+      const {getByTestId} = render(
+        <Provider store={myStore}>
+          <RecipeDetail route={route} navigation={navigation} />
+        </Provider>,
+      );
+      const favorite = getByTestId('favoritePress');
+      fireEvent.press(favorite);
+
+      expect(actions.updateUser).toHaveBeenCalled();
+    });
+
+    test('Then addFav is invoked', () => {
+      myStore = mockStore({
+        userAcces: {
+          user: {
+            favouriteRecipes: ['1234'],
+          },
+        },
+        recipe: {
+          _id: '1234abcd',
+          title: 'macarrones',
+          description: '1a',
+          image: ['a'],
+          recipeIngredient: ['b'],
+        },
+      });
+      const {getByTestId} = render(
+        <Provider store={myStore}>
+          <RecipeDetail route={route} navigation={navigation} />
+        </Provider>,
+      );
+      const favorite = getByTestId('favoritePress');
+      fireEvent.press(favorite);
+
+      expect(actions.updateUser).toHaveBeenCalled();
+    });
   });
 });
