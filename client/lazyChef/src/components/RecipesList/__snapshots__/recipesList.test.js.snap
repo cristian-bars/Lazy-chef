@@ -24,6 +24,7 @@ exports[`Given a RecipesList component renders correctly 1`] = `
           "borderRadius": 5,
           "color": "#FF914D",
           "fontSize": 25,
+          "marginLeft": 10,
         }
       }
     >

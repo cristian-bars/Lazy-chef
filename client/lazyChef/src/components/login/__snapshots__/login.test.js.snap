@@ -40,7 +40,7 @@ exports[`Given a Login component renders correctly 1`] = `
   <TextInput
     allowFontScaling={true}
     onChangeText={[Function]}
-    placeholder="Email"
+    placeholder="Correo"
     rejectResponderTermination={true}
     style={
       Object {
@@ -56,14 +56,16 @@ exports[`Given a Login component renders correctly 1`] = `
       }
     }
     testID="emailInput"
+    textContentType="emailAddress"
     underlineColorAndroid="transparent"
     value=""
   />
   <TextInput
     allowFontScaling={true}
     onChangeText={[Function]}
-    placeholder="Password"
+    placeholder="Contraseña"
     rejectResponderTermination={true}
+    secureTextEntry={true}
     style={
       Object {
         "alignItems": "center",
@@ -78,6 +80,7 @@ exports[`Given a Login component renders correctly 1`] = `
       }
     }
     testID="passwordInput"
+    textContentType="password"
     underlineColorAndroid="transparent"
     value=""
   />

@@ -9,9 +9,7 @@ exports[`Given a SearchRecipe component renders correctly 1`] = `
     }
   }
 >
-  <View
-    style={Object {}}
-  >
+  <View>
     <View
       style={
         Object {
@@ -87,8 +85,9 @@ exports[`Given a SearchRecipe component renders correctly 1`] = `
             "backgroundColor": "white",
             "flexDirection": "column",
             "flexWrap": "wrap",
+            "height": 200,
             "margin": 10,
-            "padding": 10,
+            "padding": 20,
           }
         }
       >
@@ -97,21 +96,29 @@ exports[`Given a SearchRecipe component renders correctly 1`] = `
             Object {
               "backgroundColor": "white",
               "fontSize": 20,
+              "marginBottom": 20,
             }
           }
         >
           Mi selección
         </Text>
-        <Text>
-          tomate
-        </Text>
         <Text
           style={
             Object {
-              "paddingVertical": 10,
+              "alignContent": "center",
+              "backgroundColor": "#f0f8ff",
+              "borderRadius": 5,
+              "borderWidth": 1,
+              "fontSize": 20,
+              "height": 45,
+              "marginBottom": 10,
+              "padding": 5,
+              "textAlign": "center",
             }
           }
-        />
+        >
+          tomate
+        </Text>
       </View>
     </View>
   </View>

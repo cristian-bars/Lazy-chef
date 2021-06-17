@@ -107,7 +107,7 @@ exports[`Given a Register component When is render And user.isLogged is false Th
   <TextInput
     allowFontScaling={true}
     onChangeText={[Function]}
-    placeholder="Email"
+    placeholder="Correo"
     rejectResponderTermination={true}
     style={
       Object {
@@ -129,7 +129,7 @@ exports[`Given a Register component When is render And user.isLogged is false Th
   <TextInput
     allowFontScaling={true}
     onChangeText={[Function]}
-    placeholder="Password"
+    placeholder="Contraseña"
     rejectResponderTermination={true}
     style={
       Object {
